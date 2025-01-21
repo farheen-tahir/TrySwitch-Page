@@ -219,7 +219,7 @@ const About = () => {
 //   });
 // }, []);
   
-let timeline;
+// let timeline;
 
 useEffect(() => {
   const timeline = gsap.timeline({
@@ -245,7 +245,7 @@ useEffect(() => {
     ];
 
     // Step 1: Animate cards (text and phone) one by one
-    cardAnimations.forEach((animation, index) => {
+    cardAnimations.forEach((animation) => {
       timeline
         .fromTo(
           animation.card, // Animate the card itself
@@ -338,13 +338,13 @@ return (
       <Container className="bg-custom-image h-[24rem] p-0 rounded-xl bg-cover bg-center  "  >
         <div className="relative w-full flex-col md:flex-row  mx-auto top-1/2 justify-center flex md:justify-around items-start   gap-10 pb-2 overflow-hidden" >
           <CardAbout className="card-1" imgString="/assets/images/FirstAbout.png" 
-          timeline={timeline}
+          // timeline={timeline}
           />
           <CardAbout className="card-2" imgString="/assets/images/SecondAbout.png" 
-          timeline={timeline}
+          // timeline={timeline}
           />
           <CardAbout className="card-3" imgString="/assets/images/ThirdAbout.png" 
-          timeline={timeline}
+          // timeline={timeline}
           />
         </div>
       </Container>

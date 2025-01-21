@@ -1,17 +1,17 @@
-'use client'
-import React, {useEffect,useRef} from "react";
+"use client";
+import React, { useEffect, useRef } from "react";
 import Container from "../global/Container";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import gsap from "gsap";
 const Community = () => {
-  const communityImgRef = useRef(null); 
-  const communityBtnRef=useRef(null);
-  const communityBoxRef=useRef(null);
-  const communityTitleRef=useRef(null);
-  const communityParaRef=useRef(null);
+  const communityImgRef = useRef(null);
+  const communityBtnRef = useRef(null);
+  const communityBoxRef = useRef(null);
+  const communityTitleRef = useRef(null);
+  const communityParaRef = useRef(null);
   // useEffect(() => {
-  //   // const timeline = gsap.timeline({       
+  //   // const timeline = gsap.timeline({
   //   //   scrollTrigger: {
   //   //     markers:true,
   //   //     scroller:"body",
@@ -20,7 +20,7 @@ const Community = () => {
   //   //     end: "top -100%", // Animation ends when top of the element hits 30% of the viewport
   //   //     scrub: 1,
   //   //   },
-  //   // }); 
+  //   // });
   //   gsap.from([communityTitleRef.current,communityParaRef.current,communityBtnRef.current],{
   //     x:-200,
   //     opacity:0,
@@ -54,8 +54,7 @@ const Community = () => {
   //     },
   //   });
   // }, []);
-  
-  
+
   // useEffect(() => {
   //   gsap.from([communityTitleRef.current, communityParaRef.current, communityBtnRef.current], {
   //     x: -200,
@@ -73,7 +72,7 @@ const Community = () => {
   //       scrub: 1, // Smooth scrubbing
   //     },
   //   });
-  
+
   //   gsap.from(communityImgRef.current, {
   //     x: 200,
   //     opacity: 0,
@@ -91,25 +90,32 @@ const Community = () => {
   // }, []);
   useEffect(() => {
     const mq = gsap.matchMedia(); // Initialize matchMedia for media queries
-  
+
     mq.add("(min-width: 768px)", () => {
       // Animation for medium and larger screens
-      gsap.from([communityTitleRef.current, communityParaRef.current, communityBtnRef.current], {
-        x: -200,
-        opacity: 0,
-        duration: 3,
-        delay: 2,
-        stagger: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          scroller: "body",
-          trigger: ".box-1",
-          start: "top 80%",
-          end: "top 30%",
-          scrub: 1,
-        },
-      });
-  
+      gsap.from(
+        [
+          communityTitleRef.current,
+          communityParaRef.current,
+          communityBtnRef.current,
+        ],
+        {
+          x: -200,
+          opacity: 0,
+          duration: 3,
+          delay: 2,
+          stagger: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            scroller: "body",
+            trigger: ".box-1",
+            start: "top 80%",
+            end: "top 30%",
+            scrub: 1,
+          },
+        }
+      );
+
       gsap.from(communityImgRef.current, {
         x: 200,
         opacity: 0,
@@ -124,7 +130,7 @@ const Community = () => {
         },
       });
     });
-  
+
     mq.add("(max-width: 767px)", () => {
       // Animation for small screens
       gsap.from(communityTitleRef.current, {
@@ -141,7 +147,7 @@ const Community = () => {
           scrub: true,
         },
       });
-  
+
       gsap.from(communityParaRef.current, {
         x: 100, // Slide each line of the paragraph up
         opacity: 0,
@@ -158,7 +164,7 @@ const Community = () => {
           scrub: true,
         },
       });
-  
+
       gsap.from(communityBtnRef.current, {
         x: 100, // Slide up from bottom to its position
         opacity: 0,
@@ -174,7 +180,7 @@ const Community = () => {
           scrub: true,
         },
       });
-  
+
       gsap.from(communityImgRef.current, {
         x: 300, // Slide up from bottom to its position
         opacity: 0,
@@ -191,25 +197,44 @@ const Community = () => {
         },
       });
     });
-  
+
     return () => {
       mq.revert(); // Clean up media query animations when component unmounts
     };
   }, []);
-  
+
   return (
-    <Container className="mb-20 flex  justify-center items-start overflow-hidden box-1 md:flex-row flex-col" ref={communityBoxRef}>
+    <Container
+      className="mb-20 flex  justify-center items-start overflow-hidden box-1 md:flex-row flex-col"
+      ref={communityBoxRef}
+    >
       <div className="w-full md:w-1/2 ">
-        <h1 className="text-4xl font-black text-primary py-2 md:text-start text-center" ref={communityTitleRef}>Join Our Community</h1>
-        <p className="text-xl text-gray-500 py-2 pr-7 my-7 md:text-start text-center" ref={communityParaRef}>
+        <h1
+          className="text-4xl font-black text-primary py-2 md:text-start text-center"
+          ref={communityTitleRef}
+        >
+          Join Our Community
+        </h1>
+        <p
+          className="text-xl text-gray-500 py-2 pr-7 my-7 md:text-start text-center"
+          ref={communityParaRef}
+        >
           Become a part of a thriving community of investors and sellers.
           Connect, collaborate, and grow with like-minded professionals in the
           real estate industry. Gain exclusive access to off-market deals, share
           insights, and stay ahead of the market—all within our trusted network.
         </p>
-        <Button ref={communityBtnRef} className="bg-secondary w-full md:w-2/4 my-3 py-6 mx-auto md:mx-0 flex"><p className="text-xl font-semibold my-4">Subscribe</p></Button>
+        <Button
+          ref={communityBtnRef}
+          className="bg-secondary w-full md:w-2/4 my-3 py-6 mx-auto md:mx-0 flex"
+        >
+          <p className="text-xl font-semibold my-4">Subscribe</p>
+        </Button>
       </div>
-      <div className="w-full md:w-1/2   h-full flex justify-center items-center self-center" ref={communityImgRef}>
+      <div
+        className="w-full md:w-1/2   h-full flex justify-center items-center self-center"
+        ref={communityImgRef}
+      >
         <Image
           alt="join community"
           src="assets/images/Community.svg"

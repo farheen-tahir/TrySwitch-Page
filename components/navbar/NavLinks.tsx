@@ -1,21 +1,17 @@
+"use client";
+import React, { forwardRef } from "react";
 
-'use cleint';
-import Link from 'next/link'
-import React, { forwardRef } from 'react'
+import { links } from "@/utils/links";
 
-import { links } from '@/utils/links'
 
-const NavLinks = ({ref}:{ref?:any}) => {
+type NavLinksProps = React.RefAttributes<HTMLAnchorElement>;
+
+const NavLinks = forwardRef<HTMLAnchorElement, NavLinksProps>((props, ref) => {
   return (
     <div className="flex gap-6 items-center">
-      {links?.map((link, index) => (
+      {links?.map((link) => (
         <a
-        ref={ref}
-          // ref={(el) => {
-          //   if (ref && typeof ref === "object" && ref.current) {
-          //     ref.current[index] = el; // Assign element to ref array
-          //   }
-          // }}
+          ref={ref}
           href={link.href}
           key={link.label}
           className="text-primary font-bold nav-link"
@@ -25,7 +21,9 @@ const NavLinks = ({ref}:{ref?:any}) => {
       ))}
     </div>
   );
-};
+});
 
+// Assign a display name for debugging purposes
+NavLinks.displayName = "NavLinks";
 
-export default NavLinks
+export default NavLinks;
