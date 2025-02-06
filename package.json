@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "postinstall": "git lfs pull",
-    "vercel-build": "npx git-lfs-install && next build"
+    "vercel-build": "next build"
 
   },
   "dependencies": {
