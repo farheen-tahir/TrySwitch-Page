@@ -216,7 +216,7 @@ const Community = () => {
           Join Our Community
         </h1>
         <p
-          className="text-xl text-gray-500 py-2 pr-7 my-7 md:text-start text-center"
+          className="text-xl sm:text-sm text-gray-500 py-2 pr-7 my-7 md:text-start text-center"
           ref={communityParaRef}
         >
           Become a part of a thriving community of investors and sellers.

@@ -20,7 +20,7 @@ const Footer = () => {
             height={36}
             priority
           />
-          <div className="pt-5 mx-auto flex gap-10 text-gray-800 font-bold max-sm:text-[0.875rem]">
+          <div className="pt-5 mx-auto flex sm:justify-evenly justify-start  gap-10 text-gray-800 font-bold max-sm:text-[0.875rem]">
             <p>Learn</p>
             <p>Privacy Policy</p>
             <p>Terms of Use</p>

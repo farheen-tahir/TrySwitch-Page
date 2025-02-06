@@ -3,15 +3,15 @@ import React, { useEffect, useRef } from "react";
 import Container from "../global/Container";
 import GButton from "../global/GButton";
 import gsap from "gsap";
-import Lottie, { LottieRefCurrentProps } from "lottie-react";
-import Animation from "./animationData.json";
-
+// import Lottie, { LottieRefCurrentProps } from "lottie-react";
+// import Animation from "./animationData.json";
+import Image from "next/image";
 const Hero = () => {
   const boxRef = useRef(null);
   const btn1Ref = useRef(null);
   const btn2Ref = useRef(null);
   const heroAnim = useRef(null);
-  const lottieRef = useRef<LottieRefCurrentProps | null>(null);
+  // const lottieRef = useRef<LottieRefCurrentProps | null>(null);
   const bg = useRef(null);
 
   useEffect(() => {
@@ -33,9 +33,9 @@ const Hero = () => {
           duration: 0.5,
           onStart: () => {
             // Play the Lottie animation when this step starts
-            if (lottieRef.current) {
-              lottieRef.current.play(); // No TypeScript error
-            }
+            // if (lottieRef.current) {
+            //   lottieRef.current.play(); // No TypeScript error
+            // }
           },
         },
         "-=0.3" // Overlap this animation with the previous one
@@ -76,12 +76,21 @@ const Hero = () => {
         className="w-full h-full sm:flex sm:items-center sm:mt-3 md:mt-14 lg:mt-0"
         ref={heroAnim}
       >
-        <Lottie
+         <Image
+                      priority
+                      width={500}
+                      height={500}
+                      alt="phone-hero.png"
+                      src="/assets/images/Tryswitch-hero.png"
+                      // className="w-[16rem] object-cover bg-about-image bg-contain bg-center phone"
+                    />
+        
+        {/* <Lottie
           animationData={Animation}
           loop={false}
           width={100}
           lottieRef={lottieRef}
-        />
+        /> */}
       </div>
     </Container>
   );
