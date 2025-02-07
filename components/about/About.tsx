@@ -221,14 +221,16 @@ const About = () => {
   
 // let timeline;
 
+
+//this is using useEffect
 useEffect(() => {
   const timeline = gsap.timeline({
     scrollTrigger: {
       trigger: aboutContainerRef.current,
-      start: "top -20%", // Trigger animation when the top of the container hits the viewport
+      start: "top -10%",//make it 20% // Trigger animation when the top of the container hits the viewport
       end: "top -100%", // End trigger
       scrub: 1, // Smooth scroll-based animation
-      markers: true, // Enable markers for debugging
+      // markers: true, // Enable markers for debugging
       pin: true, // Pin the container during animation
     },
   });

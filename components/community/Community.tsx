@@ -139,7 +139,7 @@ const Community = () => {
         duration: 1.5,
         ease: "power2.out",
         scrollTrigger: {
-          markers: true,
+          // markers: true,
           scroller: "body",
           trigger: ".box-1",
           start: "top 50%",
@@ -156,7 +156,7 @@ const Community = () => {
         stagger: 0.2, // Stagger animation for each line
         ease: "power2.out",
         scrollTrigger: {
-          markers: true,
+          // markers: true,
           scroller: "body",
           trigger: communityTitleRef.current,
           start: "top 10%",
@@ -172,7 +172,7 @@ const Community = () => {
         delay: 1, // Delay to ensure it animates after paragraph
         ease: "power2.out",
         scrollTrigger: {
-          markers: true,
+          // markers: true,
           scroller: "body",
           trigger: communityParaRef.current,
           start: "top 10%",
@@ -188,7 +188,7 @@ const Community = () => {
         delay: 1.5, // Delay to ensure it animates after the button
         ease: "power2.out",
         scrollTrigger: {
-          markers: true,
+          // markers: true,
           scroller: "body",
           trigger: communityBtnRef.current,
           start: "top 80%",
@@ -216,7 +216,7 @@ const Community = () => {
           Join Our Community
         </h1>
         <p
-          className="text-xl sm:text-sm text-gray-500 py-2 pr-7 my-7 md:text-start text-center"
+          className="text-xl max-sm:text-sm  text-gray-500 py-2 pr-7 my-7 md:text-start text-center"
           ref={communityParaRef}
         >
           Become a part of a thriving community of investors and sellers.

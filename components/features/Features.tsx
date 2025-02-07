@@ -293,7 +293,7 @@ const Features = () => {
         end: "+=500%",
         scrub: 1,
         pin: true,
-        markers: true,
+        // markers: true,
         onUpdate: (self) => {
           const progress = Math.floor(self.progress * images.length); // Calculate active index
           setActiveIndex(progress);
@@ -349,9 +349,12 @@ const Features = () => {
               {data.map((item, index) => (
                 <CarouselItem
                   key={index}
-                  className={`transition-opacity duration-500 ${
+                  className={`transition-opacity duration-500 
+                     ${ 
                     activeIndex === index ? "opacity-100" : "opacity-0 absolute"
-                  }`}
+                  } 
+                  `}
+                 
                 >
                   <div className="p-1" id={`data-slide-${index}`}>
                     <div className="flex items-center gap-5">
@@ -377,6 +380,7 @@ const Features = () => {
                 <RxDash
                   key={index}
                   fontSize={50}
+                
                   color={`${activeIndex === index ? "#F54208" : "gray"}`}
                 />
               ))}

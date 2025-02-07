@@ -16,7 +16,7 @@ const Contact = () => {
       opacity: 0,
       duration: 0.7,
       scrollTrigger: {
-        markers: true,
+        // markers: true,
         scroller: "body",
         trigger: contactImgRef.current, // Element to trigger the animation
         start: "top 80%", // Animation starts when top of the element hits 80% of the viewport
@@ -26,10 +26,10 @@ const Contact = () => {
     });
   }, []);
   return (
-    <Container className=" flex mb-20 flex-col lg:flex-row max-sm:p-0">
+    <Container className=" flex mb-20 flex-col lg:flex-row max-sm:p-0 gap-[10rem]">
       <div
-        className="w-full lg:w-1/2 h-[10%] lg:block hidden "
-        ref={contactImgRef}
+        className="w-full lg:w-2/5  lg:block hidden "
+        ref={contactImgRef} // h-[10%]
       >
         <Image
           src="/assets/images/ContactProperty.svg"
@@ -37,10 +37,10 @@ const Contact = () => {
           width={175}
           height={36}
           priority
-          className="w-[70%] mx-auto"
+          className="w-[100%] h-[100%] mx-auto"
         />
       </div>
-      <div className="w-full lg:w-1/2 max-sm:p-0 ">
+      <div className="w-full lg:w-3/5 max-sm:p-0 ">
         <h2 className="text-5xl font-bold pb-3 text-gray-700">
           Let’s Get in Touch
         </h2>

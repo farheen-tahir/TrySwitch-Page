@@ -73,7 +73,7 @@ const Hero = () => {
 
       {/* Right Section */}
       <div
-        className="w-full h-full sm:flex sm:items-center sm:mt-3 md:mt-14 lg:mt-0"
+        className="w-full h-full sm:flex sm:items-center sm:mt-3 lg:mt-0"
         ref={heroAnim}
       >
          <Image
