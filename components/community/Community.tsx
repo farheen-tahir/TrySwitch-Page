@@ -111,7 +111,9 @@ const Community = () => {
             trigger: ".box-1",
             start: "top 80%",
             end: "top 30%",
-            scrub: 1,
+           
+            scrub: 3,
+            // markers:true
           },
         }
       );
@@ -125,8 +127,8 @@ const Community = () => {
           scroller: "body",
           trigger: ".box-1",
           start: "top 80%",
-          end: "top 30%",
-          scrub: 1,
+          end: "top -30%",
+          scrub: 3,
         },
       });
     });
@@ -144,7 +146,8 @@ const Community = () => {
           trigger: ".box-1",
           start: "top 50%",
           end: "top 30%",
-          scrub: true,
+      
+          scrub: 3,
         },
       });
 
@@ -161,7 +164,7 @@ const Community = () => {
           trigger: communityTitleRef.current,
           start: "top 10%",
           end: "top 30%",
-          scrub: true,
+          scrub: 3,
         },
       });
 
@@ -177,7 +180,7 @@ const Community = () => {
           trigger: communityParaRef.current,
           start: "top 10%",
           end: "top 30%",
-          scrub: true,
+          scrub: 3,
         },
       });
 
@@ -192,8 +195,8 @@ const Community = () => {
           scroller: "body",
           trigger: communityBtnRef.current,
           start: "top 80%",
-          end: "top 30%",
-          scrub: true,
+          end: "top -200%",
+          scrub: 3,
         },
       });
     });

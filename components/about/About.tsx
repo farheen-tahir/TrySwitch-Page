@@ -227,9 +227,11 @@ useEffect(() => {
   const timeline = gsap.timeline({
     scrollTrigger: {
       trigger: aboutContainerRef.current,
-      start: "top -10%",//make it 20% // Trigger animation when the top of the container hits the viewport
-      end: "top -100%", // End trigger
-      scrub: 1, // Smooth scroll-based animation
+      // start: "top -30%",//make it 20% // Trigger animation when the top of the container hits the viewport
+      // end: "top -200%", // End trigger
+      start: "top 0%",
+      end: "+=500%",
+      scrub: 3, // Smooth scroll-based animation
       // markers: true, // Enable markers for debugging
       pin: true, // Pin the container during animation
     },
@@ -241,9 +243,9 @@ useEffect(() => {
   if (isSmallScreen) {
     // For small screens, animate cards one by one
     const cardAnimations = [
-      { card: ".card-1", phone: ".card-1 .phone", text: ".card-1 .text", delay: 0 },
-      { card: ".card-2", phone: ".card-2 .phone", text: ".card-2 .text", delay: 0.5 },
-      { card: ".card-3", phone: ".card-3 .phone", text: ".card-3 .text", delay: 1 },
+      { card: ".card-1", phone: ".card-1 .phone", text: ".card-1 .text", delay: 1 },
+      { card: ".card-2", phone: ".card-2 .phone", text: ".card-2 .text", delay: 2 },
+      { card: ".card-3", phone: ".card-3 .phone", text: ".card-3 .text", delay: 3 },
     ];
 
     // Step 1: Animate cards (text and phone) one by one
@@ -328,8 +330,9 @@ useEffect(() => {
 
 
 
+
 return (
-    <div className="w-full my-5 h-auto mb-[16rem]" ref={aboutContainerRef}>
+    <div className="w-full my-5 h-auto mb-[16rem]" >
       <h2 className="mx-auto text-center text-3xl font-black py-5">
         Why{" "}
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2A0EA6] to-[#F54208]">
@@ -337,7 +340,7 @@ return (
         </span>
         ?
       </h2>
-      <Container className="bg-custom-image h-[24rem] p-0 rounded-xl bg-cover bg-center  "  >
+      <Container ref={aboutContainerRef} className="bg-custom-image h-[24rem] p-0 rounded-xl bg-cover bg-center  "  >
         <div className="relative w-full flex-col md:flex-row  mx-auto top-1/2 justify-center flex md:justify-around items-start   gap-10 pb-2 overflow-hidden" >
           <CardAbout className="card-1" imgString="/assets/images/FirstAbout.png" 
           // timeline={timeline}

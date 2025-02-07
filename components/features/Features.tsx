@@ -291,7 +291,7 @@ const Features = () => {
         trigger: containerRef.current,
         start: "top 0%",
         end: "+=500%",
-        scrub: 1,
+        scrub: 3,
         pin: true,
         // markers: true,
         onUpdate: (self) => {

@@ -21,10 +21,10 @@ const Contact = () => {
         trigger: contactImgRef.current, // Element to trigger the animation
         start: "top 80%", // Animation starts when top of the element hits 80% of the viewport
         end: "top 30%", // Animation ends when top of the element hits 30% of the viewport
-        scrub: 1, // Smooth scrubbing
+        scrub: 3, //mooth scrubbing
       },
     });
-  }, []);
+  }, []); 
   return (
     <Container className=" flex mb-20 flex-col lg:flex-row max-sm:p-0 gap-[10rem]">
       <div
