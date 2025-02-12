@@ -11,17 +11,21 @@ const Contact = () => {
   const contactImgRef = useRef(null); // Use ref for the target element
 
   useEffect(() => {
+  
     gsap.from(contactImgRef.current, {
       x: -200,
       opacity: 0,
-      duration: 0.7,
+      duration: 3,
+      ease:"power2.out",
       scrollTrigger: {
         // markers: true,
         scroller: "body",
         trigger: contactImgRef.current, // Element to trigger the animation
         start: "top 80%", // Animation starts when top of the element hits 80% of the viewport
         end: "top 30%", // Animation ends when top of the element hits 30% of the viewport
-        scrub: 3, //mooth scrubbing
+        // scrub: 3, //mooth scrubbing
+        toggleActions: "play none none none", // Play once, no reverse
+      once: true,
       },
     });
   }, []); 

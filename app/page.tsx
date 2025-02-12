@@ -10,9 +10,9 @@ export default function Home() {
       <section>
         <Hero />
       </section>
-      <section className="xxs:h-[131rem] xs:h-[145rem] sm:h-[151rem]  md:h-auto">
+      {/* <section className="xxs:h-[131rem] xs:h-[145rem] sm:h-[151rem]  md:h-auto">
         <About />
-      </section>
+      </section> */}
       <section>
         <Features />
       </section>

@@ -109,3 +109,6 @@
 }
 
 
+.community-img {
+  will-change: transform, opacity;
+}

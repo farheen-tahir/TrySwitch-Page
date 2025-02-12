@@ -4,12 +4,37 @@ import Container from "../global/Container";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import gsap from "gsap";
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+
 const Community = () => {
+  gsap.registerPlugin(ScrollTrigger);
   const communityImgRef = useRef(null);
   const communityBtnRef = useRef(null);
   const communityBoxRef = useRef(null);
   const communityTitleRef = useRef(null);
   const communityParaRef = useRef(null);
+
+  // useGSAP(() => {
+  //   gsap.fromTo(
+  //     // communityImgRef.current,
+  //     ".community-img",
+  //     { opacity: 0, x: 50 },
+  //     {
+  //       opacity: 1,
+  //       x: 0,
+  //       scrollTrigger: {
+  //         trigger: communityImgRef.current,
+  //         start: "top 80%",
+  //         end: "top 30%",
+  //         scrub: true,
+  //         // markers:true
+  //       }
+  //     }
+  //   );
+  // }, []);
+
   // useEffect(() => {
   //   // const timeline = gsap.timeline({
   //   //   scrollTrigger: {
@@ -103,7 +128,7 @@ const Community = () => {
           x: -200,
           opacity: 0,
           duration: 3,
-          delay: 2,
+          // delay: 2,
           stagger: 1,
           ease: "power2.out",
           scrollTrigger: {
@@ -111,9 +136,10 @@ const Community = () => {
             trigger: ".box-1",
             start: "top 80%",
             end: "top 30%",
-           
-            scrub: 3,
+            // scrub: 3,
             // markers:true
+            toggleActions: "play none none none", // Play once, no reverse
+            once: true,
           },
         }
       );
@@ -128,17 +154,26 @@ const Community = () => {
           trigger: ".box-1",
           start: "top 80%",
           end: "top -30%",
-          scrub: 3,
+          // scrub: 3,
+          toggleActions: "play none none none", // Play once, no reverse
+          once: true,
         },
       });
     });
 
     mq.add("(max-width: 767px)", () => {
       // Animation for small screens
-      gsap.from(communityTitleRef.current, {
+      gsap.from([
+        communityTitleRef.current,
+          communityParaRef.current,
+          communityBtnRef.current,
+        // communityTitleRef.current
+      ], {
+      
         x: 100, // Slide up from bottom to its position
         opacity: 0,
         duration: 1.5,
+        stagger:1,
         ease: "power2.out",
         scrollTrigger: {
           // markers: true,
@@ -146,49 +181,50 @@ const Community = () => {
           trigger: ".box-1",
           start: "top 50%",
           end: "top 30%",
-      
-          scrub: 3,
+          toggleActions: "play none none none", // Play once, no reverse
+          once: true,
+          // scrub: 3,
         },
       });
 
-      gsap.from(communityParaRef.current, {
-        x: 100, // Slide each line of the paragraph up
-        opacity: 0,
-        duration: 1.5,
-        delay: 0.5,
-        stagger: 0.2, // Stagger animation for each line
-        ease: "power2.out",
-        scrollTrigger: {
-          // markers: true,
-          scroller: "body",
-          trigger: communityTitleRef.current,
-          start: "top 10%",
-          end: "top 30%",
-          scrub: 3,
-        },
-      });
+      // gsap.from(communityParaRef.current, {
+      //   x: 100, // Slide each line of the paragraph up
+      //   opacity: 0,
+      //   duration: 1.5,
+      //   // delay: 0.5,
+      //   // stagger: 0.2, // Stagger animation for each line
+      //   ease: "power2.out",
+      //   scrollTrigger: {
+      //     // markers: true,
+      //     scroller: "body",
+      //     trigger: communityTitleRef.current,
+      //     start: "top 10%",
+      //     end: "top 30%",
+      //     // scrub: 3,
+      //   },
+      // });
 
-      gsap.from(communityBtnRef.current, {
+      // gsap.from(communityBtnRef.current, {
+      //   x: 100, // Slide up from bottom to its position
+      //   opacity: 0,
+      //   duration: 1.5,
+      //   delay: 1, // Delay to ensure it animates after paragraph
+      //   ease: "power2.out",
+      //   scrollTrigger: {
+      //     // markers: true,
+      //     scroller: "body",
+      //     trigger: communityParaRef.current,
+      //     start: "top 10%",
+      //     end: "top 30%",
+      //     scrub: 3,
+      //   },
+      // });
+
+      gsap.from(communityImgRef.current, {
         x: 100, // Slide up from bottom to its position
         opacity: 0,
         duration: 1.5,
-        delay: 1, // Delay to ensure it animates after paragraph
-        ease: "power2.out",
-        scrollTrigger: {
-          // markers: true,
-          scroller: "body",
-          trigger: communityParaRef.current,
-          start: "top 10%",
-          end: "top 30%",
-          scrub: 3,
-        },
-      });
-
-      gsap.from(communityImgRef.current, {
-        x: 300, // Slide up from bottom to its position
-        opacity: 0,
-        duration: 2,
-        delay: 1.5, // Delay to ensure it animates after the button
+        // delay: 1, // Delay to ensure it animates after the button
         ease: "power2.out",
         scrollTrigger: {
           // markers: true,
@@ -196,7 +232,7 @@ const Community = () => {
           trigger: communityBtnRef.current,
           start: "top 80%",
           end: "top -200%",
-          scrub: 3,
+          // scrub: 3,
         },
       });
     });
@@ -235,10 +271,11 @@ const Community = () => {
         </Button>
       </div>
       <div
-        className="w-full md:w-1/2   h-full flex justify-center items-center self-center"
+        className=" w-full md:w-1/2   h-full flex justify-center items-center self-center"
         ref={communityImgRef}
       >
         <Image
+        className="community-img"
           alt="join community"
           src="assets/images/Community.svg"
           width={400}
