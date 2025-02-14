@@ -1,40 +1,41 @@
-'use client';
+"use client";
 import React, { useEffect, useRef } from "react";
-import Image from "next/image";
 import Container from "../global/Container";
 import GButton from "../global/GButton";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
-const AppInfo = ({ userType = 1, animationPath="/assets/webm/seller-animation.webm" }) => {
-    const videoRef = useRef<HTMLVideoElement | null>(null);
+const AppInfo = ({
+  userType = 1,
+  animationPath = "/assets/webm/seller-animation.webm",
+}) => {
+  const videoRef = useRef<HTMLVideoElement | null>(null);
 
-    useEffect(() => {
-      if (videoRef.current) {
-        videoRef.current.playbackRate = 0.5; // Slows the video to 50% speed
-      }
-    }, []);
-    useEffect(() => {
-  
-        gsap.from(videoRef.current, {
-          x: userType===1?-200:200,
-          opacity: 0,
-          duration: 3,
-          ease:"power2.out",
-          scrollTrigger: {
-            // markers: true,
-            scroller: "body",
-            trigger: videoRef.current, // Element to trigger the animation
-            start: "top 80%", // Animation starts when top of the element hits 80% of the viewport
-            end: "top 30%", // Animation ends when top of the element hits 30% of the viewport
-            // scrub: 3, //mooth scrubbing
-            toggleActions: "play none none none", // Play once, no reverse
-          once: true,
-          },
-        });
-      }, []); 
-    return (
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.playbackRate = 0.5; // Slows the video to 50% speed
+    }
+  }, []);
+  useEffect(() => {
+    gsap.from(videoRef.current, {
+      x: userType === 1 ? -200 : 200,
+      opacity: 0,
+      duration: 3,
+      ease: "power2.out",
+      scrollTrigger: {
+        // markers: true,
+        scroller: "body",
+        trigger: videoRef.current, // Element to trigger the animation
+        start: "top 80%", // Animation starts when top of the element hits 80% of the viewport
+        end: "top 30%", // Animation ends when top of the element hits 30% of the viewport
+        // scrub: 3, //mooth scrubbing
+        toggleActions: "play none none none", // Play once, no reverse
+        once: true,
+      },
+    });
+  }, []);
+  return (
     <Container className="h-full justify-between flex flex-col md:flex-row    py-6 px-4 md:px-6 mt-8 md:mt-20 rounded-xl max-w-[65rem] mx-0 ">
       {userType === 2 && (
         <div className="w-full md:w-1/2  ">
@@ -79,11 +80,18 @@ const AppInfo = ({ userType = 1, animationPath="/assets/webm/seller-animation.we
           className="h-full"
           //   className="w-[16rem] object-cover bg-about-image bg-contain bg-center phone"
         /> */}
-         <video ref={videoRef} autoPlay loop muted playsInline  className="w-full md:w-[85%] h-auto">
-        <source src={animationPath} type="video/webm" />
-        <source src={animationPath} type="video/mp4" />
-        Your browser does not support this
-      </video>
+        <video
+          ref={videoRef}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full md:w-[85%] h-auto"
+        >
+          <source src={animationPath} type="video/webm" />
+          <source src={animationPath} type="video/mp4" />
+          Your browser does not support this
+        </video>
         {/* <video
           poster="/assets/webm/hero-section.webm"
           autoPlay

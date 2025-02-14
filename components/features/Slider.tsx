@@ -168,12 +168,14 @@
 //   );
 // }
 
-
-
 "use client";
 import React, { useEffect, useState } from "react";
 import gsap from "gsap";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 import { RxDash } from "react-icons/rx";
 import Image from "next/image";
 import { ScrollTrigger } from "gsap/ScrollTrigger";

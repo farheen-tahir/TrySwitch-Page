@@ -214,9 +214,6 @@
 
 // export default Features;
 
-
-
-
 "use client";
 import React, { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
@@ -228,15 +225,12 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import { motion } from "framer-motion";
-import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(ScrollTrigger);
 
 const Features = () => {
-
   // useEffect(() => {
-  //   gsap.fromTo(".headline-text", 
-  //     { 
+  //   gsap.fromTo(".headline-text",
+  //     {
   //       // opacity: 0,
   //        x: 1200 },
   //      {
@@ -260,22 +254,24 @@ const Features = () => {
   //     ScrollTrigger.killAll(); // Cleanup on unmount
   //   };
   // }, []);
-  
-  
-  
+
   useEffect(() => {
-    gsap.fromTo(".headline-text",{
-      x:300,
-      // opacity:0
-    }, {
-      // transform:"translateX(-150%)",
-      // x:-20,
-      opacity:1,
-      x: "-100%", // Move to the left
-      duration: 20, // Adjust speed
-      ease: "linear",
-      repeat: -1, // Infinite loop
-    });
+    gsap.fromTo(
+      ".headline-text",
+      {
+        x: 300,
+        // opacity:0
+      },
+      {
+        // transform:"translateX(-150%)",
+        // x:-20,
+        opacity: 1,
+        x: "-100%", // Move to the left
+        duration: 20, // Adjust speed
+        ease: "linear",
+        repeat: -1, // Infinite loop
+      }
+    );
   }, []);
   const [activeIndex, setActiveIndex] = useState(0);
 
@@ -346,40 +342,40 @@ const Features = () => {
   //     },
   //   });
 
-    // Animate headline text
-    // timeline.to(".headline-text", {
-    //   x: "-150%", // Move text to the left
-    //   duration: 50,
-    // });
+  // Animate headline text
+  // timeline.to(".headline-text", {
+  //   x: "-150%", // Move text to the left
+  //   duration: 50,
+  // });
 
-    // Animate images
-    // images.forEach((_, index) => {
-    //   timeline.fromTo(
-    //     `#slide-${index}`,
-    //     { x: 200, opacity: 0 }, // Start from below with 0 opacity
-    //     { x: 0, opacity: 1, duration: 1, ease: "power2.out" }, // Animate to its position
-    //     index * 1.2 // Stagger delay for sequential appearance
-    //   );
-    // });
+  // Animate images
+  // images.forEach((_, index) => {
+  //   timeline.fromTo(
+  //     `#slide-${index}`,
+  //     { x: 200, opacity: 0 }, // Start from below with 0 opacity
+  //     { x: 0, opacity: 1, duration: 1, ease: "power2.out" }, // Animate to its position
+  //     index * 1.2 // Stagger delay for sequential appearance
+  //   );
+  // });
 
-    // data.forEach((_, index) => {
-    //   timeline.fromTo(
-    //     `#data-slide-${index}`,
-    //     { y: 200, opacity: 0 }, // Start from below with 0 opacity
-    //     { y: 0, opacity: 1, duration: 1, ease: "power2.out" }, // Animate to its position
-    //     index * 1.2 // Stagger delay for sequential appearance
-    //   );
-    // });
+  // data.forEach((_, index) => {
+  //   timeline.fromTo(
+  //     `#data-slide-${index}`,
+  //     { y: 200, opacity: 0 }, // Start from below with 0 opacity
+  //     { y: 0, opacity: 1, duration: 1, ease: "power2.out" }, // Animate to its position
+  //     index * 1.2 // Stagger delay for sequential appearance
+  //   );
+  // });
   // }, []);
 
-    // Auto slide every 4 seconds
-    useEffect(() => {
-      const interval = setInterval(() => {
-        setActiveIndex((prevIndex) => (prevIndex + 1) % data.length);
-      }, 4000);
-  
-      return () => clearInterval(interval);
-    }, [data.length]);
+  // Auto slide every 4 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prevIndex) => (prevIndex + 1) % data.length);
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [data.length]);
   return (
     <div
       ref={containerRef}
@@ -390,14 +386,14 @@ const Features = () => {
       </h2>
       <div className="overflow-hidden">
         <h1 className="headline-text whitespace-nowrap overflow-hidden text-ellipsis sm:text-[5rem] text-4xl text-[#ECECEC] font-extrabold leading-tight inline-block">
-          TrySwitch–Your Gateway to Off-Market Deals. 
+          TrySwitch–Your Gateway to Off-Market Deals.
           {/* TrySwitch – Your Gateway
           to Off-Market Deals. TrySwitch – Your Gateway to Off-Market Deals.
           TrySwitch – Your Gateway to Off-Market Deals. */}
         </h1>
       </div>
       {/* <div className="flex flex-col sm:flex-row"> */}
-        {/* <div className="w-full sm:w-1/2 items-center flex slider">
+      {/* <div className="w-full sm:w-1/2 items-center flex slider">
           <Carousel className="w-full">
             <CarouselContent>
               {data.map((item, index) => (
@@ -452,7 +448,7 @@ const Features = () => {
             </div>
           </Carousel>
         </div> */}
-        {/* <div className="w-full sm:w-1/2 items-center justify-center flex">
+      {/* <div className="w-full sm:w-1/2 items-center justify-center flex">
           <div className="feature-images relative">
             <Carousel className="w-full">
               <CarouselContent>
@@ -484,67 +480,86 @@ const Features = () => {
         </div> */}
       {/* </div> */}
       <div className="flex flex-col sm:flex-row w-full">
-      {/* Text Carousel */}
-      <div className="w-full sm:w-1/2 flex items-center slider overflow-hidden">
-        <Carousel className="w-full">
-          <CarouselContent className="relative">
-            {data.map((item, index) => (
-              <CarouselItem
-                key={index}
-                className={`transition-all duration-700 transform 
-                  ${activeIndex === index ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 absolute"}
-                `}
-              >
-                <div className="p-4" id={`data-slide-${index}`}>
-                  <div className="flex items-center gap-5">
-                    <Image alt="slide-icons" src={item.url} width={50} height={50} />
-                    <h3 className="text-md capitalize text-primary font-extrabold sm:text-2xl">
-                      {item.title}
-                    </h3>
-                  </div>
-                  <p className="text-xl text-[#555555] py-5 break-words">{item.description}</p>
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          {/* Dots for Indicators */}
-          <div className="flex justify-center mt-4">
-            {data.map((_, index) => (
-              <RxDash key={index} fontSize={50} color={activeIndex === index ? "#F54208" : "gray"} />
-            ))}
-          </div>
-        </Carousel>
-      </div>
-
-      {/* Image Carousel */}
-      <div className="w-full sm:w-1/2 flex items-center justify-center">
-        <div className="feature-images relative overflow-hidden">
+        {/* Text Carousel */}
+        <div className="w-full sm:w-1/2 flex items-center slider overflow-hidden">
           <Carousel className="w-full">
             <CarouselContent className="relative">
-              {images.map((img, index) => (
+              {data.map((item, index) => (
                 <CarouselItem
                   key={index}
-                  className={`transition-all duration-700 transform
-                    ${activeIndex === index ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full absolute"}
-                  `}
+                  className={`transition-all duration-700 transform 
+                  ${
+                    activeIndex === index
+                      ? "opacity-100 translate-y-0"
+                      : "opacity-0 translate-y-10 absolute"
+                  }
+                `}
                 >
-                  <div className="p-1 flex items-center justify-center w-full h-full">
-                    <Image
-                      id={`slide-${index}`}
-                      src={img}
-                      alt={`slide`}
-                      width={600}
-                      height={600}
-                      className="w-[400px] h-[400px] max-md:h-[250px] object-contain"
-                    />
+                  <div className="p-4" id={`data-slide-${index}`}>
+                    <div className="flex items-center gap-5">
+                      <Image
+                        alt="slide-icons"
+                        src={item.url}
+                        width={50}
+                        height={50}
+                      />
+                      <h3 className="text-md capitalize text-primary font-extrabold sm:text-2xl">
+                        {item.title}
+                      </h3>
+                    </div>
+                    <p className="text-xl text-[#555555] py-5 break-words">
+                      {item.description}
+                    </p>
                   </div>
                 </CarouselItem>
               ))}
             </CarouselContent>
+            {/* Dots for Indicators */}
+            <div className="flex justify-center mt-4">
+              {data.map((_, index) => (
+                <RxDash
+                  key={index}
+                  fontSize={50}
+                  color={activeIndex === index ? "#F54208" : "gray"}
+                />
+              ))}
+            </div>
           </Carousel>
         </div>
+
+        {/* Image Carousel */}
+        <div className="w-full sm:w-1/2 flex items-center justify-center">
+          <div className="feature-images relative overflow-hidden">
+            <Carousel className="w-full">
+              <CarouselContent className="relative">
+                {images.map((img, index) => (
+                  <CarouselItem
+                    key={index}
+                    className={`transition-all duration-700 transform
+                    ${
+                      activeIndex === index
+                        ? "opacity-100 translate-x-0"
+                        : "opacity-0 translate-x-full absolute"
+                    }
+                  `}
+                  >
+                    <div className="p-1 flex items-center justify-center w-full h-full">
+                      <Image
+                        id={`slide-${index}`}
+                        src={img}
+                        alt={`slide`}
+                        width={600}
+                        height={600}
+                        className="w-[400px] h-[400px] max-md:h-[250px] object-contain"
+                      />
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+            </Carousel>
+          </div>
+        </div>
       </div>
-    </div>
     </div>
   );
 };

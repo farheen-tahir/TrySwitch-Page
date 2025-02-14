@@ -11,12 +11,11 @@ const Contact = () => {
   const contactImgRef = useRef(null); // Use ref for the target element
 
   useEffect(() => {
-  
     gsap.from(contactImgRef.current, {
       x: -200,
       opacity: 0,
       duration: 3,
-      ease:"power2.out",
+      ease: "power2.out",
       scrollTrigger: {
         // markers: true,
         scroller: "body",
@@ -25,10 +24,10 @@ const Contact = () => {
         end: "top 30%", // Animation ends when top of the element hits 30% of the viewport
         // scrub: 3, //mooth scrubbing
         toggleActions: "play none none none", // Play once, no reverse
-      once: true,
+        once: true,
       },
     });
-  }, []); 
+  }, []);
   return (
     <Container className=" flex mb-20 flex-col lg:flex-row max-sm:p-0 gap-[10rem]">
       <div

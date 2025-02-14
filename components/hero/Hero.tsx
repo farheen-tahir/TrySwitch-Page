@@ -5,13 +5,13 @@ import GButton from "../global/GButton";
 import gsap from "gsap";
 // import Lottie, { LottieRefCurrentProps } from "lottie-react";
 // import Animation from "./animationData.json";
-import Image from "next/image";
+
 const Hero = () => {
   const boxRef = useRef(null);
   const btn1Ref = useRef(null);
   const btn2Ref = useRef(null);
   const heroAnim = useRef(null);
-  const videoRef =useRef(null);
+  const videoRef = useRef(null);
   // const lottieRef = useRef<LottieRefCurrentProps | null>(null);
   const bg = useRef(null);
 
@@ -79,11 +79,17 @@ const Hero = () => {
         w-full h-full sm:flex sm:items-center sm:mt-3 lg:mt-0"
         ref={heroAnim}
       >
-          <video  autoPlay ref={videoRef} muted playsInline  className="w-full  h-auto">
-        <source src={"/assets/webm/hero-section.webm"} type="video/webm" />
-        <source src={"/assets/webm/hero-section.webm"} type="video/mp4" />
-        Your browser does not support this
-      </video>
+        <video
+          autoPlay
+          ref={videoRef}
+          muted
+          playsInline
+          className="w-full  h-auto"
+        >
+          <source src={"/assets/webm/hero-section.webm"} type="video/webm" />
+          <source src={"/assets/webm/hero-section.webm"} type="video/mp4" />
+          Your browser does not support this
+        </video>
         {/* <Image
           priority
           width={500}
@@ -92,8 +98,8 @@ const Hero = () => {
           src="/assets/images/Tryswitch-hero.png"
           // className="w-[16rem] object-cover bg-about-image bg-contain bg-center phone"
         /> */}
-         
-           {/* <video  autoPlay loop muted playsInline style={{ width: "100%", height: "auto" }}>
+
+        {/* <video  autoPlay loop muted playsInline style={{ width: "100%", height: "auto" }}>
         <source src="/assests/webm/hero-section.webm" type="video/webm" />
         <source src="/assests/webm/hero-section.webm" type="video/mp4" />
         Your browser does not support this

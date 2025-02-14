@@ -1,5 +1,4 @@
 import React from "react";
-import Container from "../global/Container";
 import Image from "next/image";
 
 const Solutions = () => {
@@ -32,12 +31,8 @@ const Solutions = () => {
           className="z-20 relative"
           //   className="w-[16rem] object-cover bg-about-image bg-contain bg-center phone"
         />
-        <div className="max-md:hidden w-[20rem] h-[20rem] bg-gradient-to-r from-[#270AAD] to-[#D9D2FC] z-10 absolute left-0 top-0 rounded-xl custom-transform">
-     
-        </div>
-        <div className="max-md:hidden w-[20rem] h-[20rem] bg-gradient-to-r from-[#270AAD] to-[#D9D2FC] z-0 absolute left-0 top-0 rounded-xl custom-transform2">
-     
-     </div>
+        <div className="max-md:hidden w-[20rem] h-[20rem] bg-gradient-to-r from-[#270AAD] to-[#D9D2FC] z-10 absolute left-0 top-0 rounded-xl custom-transform"></div>
+        <div className="max-md:hidden w-[20rem] h-[20rem] bg-gradient-to-r from-[#270AAD] to-[#D9D2FC] z-0 absolute left-0 top-0 rounded-xl custom-transform2"></div>
       </div>
     </div>
   );

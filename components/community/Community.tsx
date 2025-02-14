@@ -4,9 +4,7 @@ import Container from "../global/Container";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import gsap from "gsap";
-import { useGSAP } from '@gsap/react';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Community = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -163,29 +161,31 @@ const Community = () => {
 
     mq.add("(max-width: 767px)", () => {
       // Animation for small screens
-      gsap.from([
-        communityTitleRef.current,
+      gsap.from(
+        [
+          communityTitleRef.current,
           communityParaRef.current,
           communityBtnRef.current,
-        // communityTitleRef.current
-      ], {
-      
-        x: 100, // Slide up from bottom to its position
-        opacity: 0,
-        duration: 1.5,
-        stagger:1,
-        ease: "power2.out",
-        scrollTrigger: {
-          // markers: true,
-          scroller: "body",
-          trigger: ".box-1",
-          start: "top 50%",
-          end: "top 30%",
-          toggleActions: "play none none none", // Play once, no reverse
-          once: true,
-          // scrub: 3,
-        },
-      });
+          // communityTitleRef.current
+        ],
+        {
+          x: 100, // Slide up from bottom to its position
+          opacity: 0,
+          duration: 1.5,
+          stagger: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+            // markers: true,
+            scroller: "body",
+            trigger: ".box-1",
+            start: "top 50%",
+            end: "top 30%",
+            toggleActions: "play none none none", // Play once, no reverse
+            once: true,
+            // scrub: 3,
+          },
+        }
+      );
 
       // gsap.from(communityParaRef.current, {
       //   x: 100, // Slide each line of the paragraph up
@@ -275,7 +275,7 @@ const Community = () => {
         ref={communityImgRef}
       >
         <Image
-        className="community-img"
+          className="community-img"
           alt="join community"
           src="assets/images/Community.svg"
           width={400}

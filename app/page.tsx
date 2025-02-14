@@ -1,4 +1,4 @@
-import About from "@/components/about/About";
+// import About from "@/components/about/About";
 import AppInfo from "@/components/appInfo/AppInfo";
 import Community from "@/components/community/Community";
 import Contact from "@/components/contact/Contact";
@@ -22,10 +22,16 @@ export default function Home() {
         <Solutions />
       </section>
       <section>
-        <AppInfo userType={1} animationPath="/assets/webm/seller-animation.webm"/>
+        <AppInfo
+          userType={1}
+          animationPath="/assets/webm/seller-animation.webm"
+        />
       </section>
       <section>
-        <AppInfo userType={2} animationPath="/assets/webm/investor-animation.webm"/>
+        <AppInfo
+          userType={2}
+          animationPath="/assets/webm/investor-animation.webm"
+        />
       </section>
       <section>
         <Community />
