@@ -11,7 +11,8 @@ const Hero = () => {
   const btn1Ref = useRef(null);
   const btn2Ref = useRef(null);
   const heroAnim = useRef(null);
-  const videoRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement | null>(null);
+
   // const lottieRef = useRef<LottieRefCurrentProps | null>(null);
   const bg = useRef(null);
 
@@ -33,8 +34,10 @@ const Hero = () => {
           opacity: 0,
           duration: 0.5,
           onStart: () => {
-            videoRef.current.play();
-            // Play the Lottie animation when this step starts
+            if (videoRef.current) {
+              videoRef.current.play(); // ✅ Now TypeScript knows it's a video element
+            }
+                        // Play the Lottie animation when this step starts
             // if (lottieRef.current) {
             //   lottieRef.current.play(); // No TypeScript error
             // }
