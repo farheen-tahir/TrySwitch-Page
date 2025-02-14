@@ -535,7 +535,7 @@ const Features = () => {
                       alt={`slide`}
                       width={600}
                       height={600}
-                      className="w-[400px] h-[400px] object-contain"
+                      className="w-[400px] h-[400px] max-md:h-[250px] object-contain"
                     />
                   </div>
                 </CarouselItem>

@@ -112,3 +112,10 @@
 .community-img {
   will-change: transform, opacity;
 }
+.custom-transform {
+  transform: rotate(5deg);
+}
+.custom-transform2{
+  transform: rotate(10deg);
+
+}

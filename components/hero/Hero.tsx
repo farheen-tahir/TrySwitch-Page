@@ -11,6 +11,7 @@ const Hero = () => {
   const btn1Ref = useRef(null);
   const btn2Ref = useRef(null);
   const heroAnim = useRef(null);
+  const videoRef =useRef(null);
   // const lottieRef = useRef<LottieRefCurrentProps | null>(null);
   const bg = useRef(null);
 
@@ -32,6 +33,7 @@ const Hero = () => {
           opacity: 0,
           duration: 0.5,
           onStart: () => {
+            videoRef.current.play();
             // Play the Lottie animation when this step starts
             // if (lottieRef.current) {
             //   lottieRef.current.play(); // No TypeScript error
@@ -73,18 +75,42 @@ const Hero = () => {
 
       {/* Right Section */}
       <div
-        className="w-full h-full sm:flex sm:items-center sm:mt-3 lg:mt-0"
+        className="
+        w-full h-full sm:flex sm:items-center sm:mt-3 lg:mt-0"
         ref={heroAnim}
       >
-         <Image
-                      priority
-                      width={500}
-                      height={500}
-                      alt="phone-hero.png"
-                      src="/assets/images/Tryswitch-hero.png"
-                      // className="w-[16rem] object-cover bg-about-image bg-contain bg-center phone"
-                    />
-        
+          <video  autoPlay ref={videoRef} muted playsInline  className="w-full  h-auto">
+        <source src={"/assets/webm/hero-section.webm"} type="video/webm" />
+        <source src={"/assets/webm/hero-section.webm"} type="video/mp4" />
+        Your browser does not support this
+      </video>
+        {/* <Image
+          priority
+          width={500}
+          height={500}
+          alt="phone-hero.png"
+          src="/assets/images/Tryswitch-hero.png"
+          // className="w-[16rem] object-cover bg-about-image bg-contain bg-center phone"
+        /> */}
+         
+           {/* <video  autoPlay loop muted playsInline style={{ width: "100%", height: "auto" }}>
+        <source src="/assests/webm/hero-section.webm" type="video/webm" />
+        <source src="/assests/webm/hero-section.webm" type="video/mp4" />
+        Your browser does not support this
+      </video> */}
+        {/* <video width="100%" height="auto" controls >
+      <source src="/assests/webm/hero-section.webm" type="video/webm" />
+      Your browser does not support the video tag.
+    </video> */}
+        {/* <video
+      src="/assests/webm/hero-section.webm"
+      autoPlay
+      loop
+      muted
+      playsInline
+      style={{ width: "100%", height: "auto" }}
+    /> */}
+
         {/* <Lottie
           animationData={Animation}
           loop={false}
