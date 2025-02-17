@@ -386,7 +386,7 @@ const Features = () => {
       </h2>
       <div className="overflow-hidden">
         <h1 className="headline-text whitespace-nowrap overflow-hidden text-ellipsis sm:text-[5rem] text-4xl text-[#ECECEC] font-extrabold leading-tight inline-block">
-          TrySwitch–Your Gateway to Off-Market Deals.
+          TRYSWITCH–YOUR GATEWAY TO OFF-MARKET DEALS.
           {/* TrySwitch – Your Gateway
           to Off-Market Deals. TrySwitch – Your Gateway to Off-Market Deals.
           TrySwitch – Your Gateway to Off-Market Deals. */}

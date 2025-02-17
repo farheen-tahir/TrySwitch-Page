@@ -1,5 +1,5 @@
 // import About from "@/components/about/About";
-import AppInfo from "@/components/appInfo/AppInfo";
+// import AppInfo from "@/components/appInfo/AppInfo";
 import Community from "@/components/community/Community";
 import Contact from "@/components/contact/Contact";
 import Features from "@/components/features/Features";
@@ -21,18 +21,18 @@ export default function Home() {
       <section>
         <Solutions />
       </section>
-      <section>
+      {/* <section>
         <AppInfo
           userType={1}
           animationPath="/assets/webm/seller-animation.webm"
         />
-      </section>
-      <section>
+      </section> */}
+      {/* <section>
         <AppInfo
           userType={2}
           animationPath="/assets/webm/investor-animation.webm"
         />
-      </section>
+      </section> */}
       <section>
         <Community />
       </section>

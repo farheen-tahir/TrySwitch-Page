@@ -108,7 +108,9 @@
   }
 }
 
-
+* {
+  font-family: 'Poppins';
+}
 .community-img {
   will-change: transform, opacity;
 }
