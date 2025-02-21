@@ -27,7 +27,7 @@ const AppInfo = ({
         // markers: true,
         scroller: "body",
         trigger: videoRef.current, // Element to trigger the animation
-        start: "top 80%", // Animation starts when top of the element hits 80% of the viewport
+        start: "top 50%", // Animation starts when top of the element hits 80% of the viewport
         end: "top 30%", // Animation ends when top of the element hits 30% of the viewport
         // scrub: 3, //mooth scrubbing
         toggleActions: "play none none none", // Play once, no reverse
@@ -36,13 +36,17 @@ const AppInfo = ({
     });
   }, []);
   return (
-    <Container className="h-full justify-between flex flex-col md:flex-row    py-6 px-4 md:px-6 mt-8 md:mt-20 rounded-xl max-w-[65rem] mx-0 ">
+    <Container
+    className={`h-full justify-between flex ${
+      userType === 1 ? "flex-col-reverse" : "flex-col"
+    } lg:flex-row py-6 px-4 md:px-6  rounded-xl max-w-[65rem] mx-0`}
+  >
       {userType === 2 && (
-        <div className="w-full md:w-1/2  ">
+        <div className="w-full lg:w-1/2  ">
           <h1 className="text-4xl font-black  text-primary py-2 md:text-start text-center">
             For Seller
           </h1>
-          <p className="text-xl max-sm:text-sm  text-[#555555] pt-[1rem] pr-7  md:text-start text-center">
+          <p className="text-lg max-sm:text-sm max-sm:pr-0  text-[#555555] pt-[1rem] pr-7  md:text-start text-center">
             In a market increasingly dominated by MLS software, off-market
             sellers aiming to expand their reach can’t afford to fall behind.
             Instead of competing against this trend, join it with TrySwitch. Our
@@ -55,12 +59,12 @@ const AppInfo = ({
           </p>
           <div className="justify-center flex flex-col sm:flex-row gap-7 sm:gap-8 w-full mt-8 sm:mt-16">
             <GButton
-              className="w-full sm:w-2/5 bg-primary hover:bg-secondary"
+              className="w-full sm:w-[47%] bg-primary hover:bg-secondary"
               img="/assets/images/PlaystoreIcon.svg"
               text="Google Play"
             />
             <GButton
-              className="w-full sm:w-2/5 bg-secondary hover:bg-primary"
+              className="w-full sm:w-[47%] bg-secondary hover:bg-primary"
               img="/assets/images/AppleIcon.svg"
               text="App Store"
             />
@@ -68,7 +72,7 @@ const AppInfo = ({
         </div>
       )}
       <div
-        className="w-full md:w-1/2 flex justify-center overflow-hidden"
+        className="w-full lg:w-1/2 flex justify-center overflow-hidden"
         //    className='absolute inset-y-0 right-0 w-16 ...'
       >
         {/* <Image
@@ -86,7 +90,7 @@ const AppInfo = ({
           loop
           muted
           playsInline
-          className="w-full md:w-[85%] h-auto"
+          className="w-full md:w-[85%] h-auto max-sm:mt-8"
         >
           <source src={animationPath} type="video/webm" />
           <source src={animationPath} type="video/mp4" />
@@ -102,11 +106,11 @@ const AppInfo = ({
         /> */}
       </div>
       {userType === 1 && (
-        <div className="w-full md:w-1/2 ">
+        <div className="w-full lg:w-1/2 ">
           <h1 className="text-4xl font-black text-primary py-2 md:text-start text-center">
             For Investor
           </h1>
-          <p className="text-xl max-sm:text-sm  text-[#555555] pt-[1rem] pr-7  md:text-start text-center">
+          <p className="text-lg max-sm:pr-0 max-sm:text-sm  text-[#555555] pt-[1rem] pr-7  md:text-start text-center">
             Whether you’re a residential investor, real estate flipper,
             buy-and-hold investor, wholesaler, or land developer, TrySwitch
             simplifies your search for discounted investment opportunities. Our
@@ -119,12 +123,12 @@ const AppInfo = ({
           </p>
           <div className="justify-center flex flex-col sm:flex-row gap-7 sm:gap-8 w-full mt-8 sm:mt-16">
             <GButton
-              className="w-full sm:w-2/5 bg-primary hover:bg-secondary"
+              className="w-full sm:w-[47%] bg-primary hover:bg-secondary"
               img="/assets/images/PlaystoreIcon.svg"
               text="Google Play"
             />
             <GButton
-              className="w-full sm:w-2/5 bg-secondary hover:bg-primary"
+              className="w-full sm:w-[47%] bg-secondary hover:bg-primary"
               img="/assets/images/AppleIcon.svg"
               text="App Store"
             />

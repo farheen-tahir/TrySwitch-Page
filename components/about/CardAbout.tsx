@@ -22,45 +22,55 @@ const CardAbout = ({
   return (
     <Card
       className={cn(
-        "bg-[#f5f5f5] h-[26rem] w-60 mx-auto md:w-72  md:m-0 flex justify-between items-center flex-col",
+        "about-card bg-[#f5f5f5] h-[26rem] w-60 mx-auto md:w-72  md:m-0 flex justify-between items-center flex-col",
         className
       )}
     >
       {isFooterContent ? (
-        <div className="inner-content  flex flex-col justify-between">
-          <CardContent className="flex items-center justify-center h-full py-0 my-0 ">
-            <Image
+        <div className="inner-content contents  flex-col justify-between">
+          <CardContent className="card-content w-full relative flex items-center justify-center h-full py-0 my-0 ">
+            {/* <Image
               priority
               width={250}
               height={150}
               alt="phone.png"
               src={imgString}
-              className="w-[16rem] object-cover bg-about-image bg-contain bg-center phone"
+              className="w-[22rem] object-cover bg-about-image bg-contain bg-center phone"
+            /> */}
+              <Image
+              priority
+              width={400}
+              height={400}
+              alt="phone.png"
+              src={imgString}
+              className="about-img about-opposite-img w-[22rem] top-[-2%] md:w-[20rem] absolute bottom-0 object-cover 
+           
+               bg-contain bg-center phone"
             />
           </CardContent>
           <CardFooter className="text-center flex flex-col text">
-            <CardTitle className="w-full">Trusted Connections</CardTitle>
-            <CardDescription className="w-full">
+            <CardTitle className="card-title w-full text-[20px]">Trusted Connections</CardTitle>
+            <CardDescription className="card-description w-full text-[16px] px-0 py-2">
               Verified sellers, secure investments.
             </CardDescription>
           </CardFooter>
         </div>
       ) : (
         <div className="inner-content  flex flex-col justify-between">
-          <CardHeader className="text-center text">
-            <CardTitle>Trusted Connections</CardTitle>
-            <CardDescription>
+          <CardHeader className="card-header text-center text">
+            <CardTitle className="card-title text-[20px]">Trusted Connections</CardTitle>
+            <CardDescription className="card-description text-[16px] px-0 py-2">
               Verified sellers, secure investments.
             </CardDescription>
           </CardHeader>
-          <CardContent className="flex items-center justify-center h-full py-0 my-0 ">
+          <CardContent className="card-content flex items-center justify-center h-full py-0 my-0 ">
             <Image
               priority
               width={400}
               height={400}
               alt="phone.png"
               src={imgString}
-              className="w-[12rem] md:w-[16rem] absolute bottom-0 object-cover 
+              className="about-img w-[22rem] md:w-[20rem] absolute bottom-0 object-cover 
            
                bg-contain bg-center phone"
             />

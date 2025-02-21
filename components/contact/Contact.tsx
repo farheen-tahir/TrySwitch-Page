@@ -29,9 +29,9 @@ const Contact = () => {
     });
   }, []);
   return (
-    <Container className=" flex mb-20 flex-col lg:flex-row max-sm:p-0 gap-[10rem]">
+    <Container className=" flex mb-20 flex-col lg:flex-row max-sm:p-0 justify-between max-lg:gap-[3rem] ">
       <div
-        className="w-full lg:w-2/5  lg:block hidden "
+        className="w-full xl:w-[35%] lg:w-[37%] lg:max-w-[1200px]:w-[37%] lg:block hidden "
         ref={contactImgRef} // h-[10%]
       >
         <Image
@@ -43,7 +43,7 @@ const Contact = () => {
           className="w-[100%] h-[100%] mx-auto"
         />
       </div>
-      <div className="w-full lg:w-3/5 max-sm:p-0 ">
+      <div className="w-full lg:w-[55%] xl:w-3/5  max-sm:p-0 ">
         <h2 className="text-5xl font-bold pb-3 text-gray-700">
           Let’s Get in Touch
         </h2>

@@ -381,7 +381,7 @@ const Features = () => {
       ref={containerRef}
       className="w-full my-5 feature-section overflow-hidden feature-section"
     >
-      <h2 className="text-center text-secondary text-2xl font-black">
+      <h2 className="text-center text-secondary text-[2.5rem] font-[700]">
         Features
       </h2>
       <div className="overflow-hidden">
@@ -507,7 +507,7 @@ const Features = () => {
                         {item.title}
                       </h3>
                     </div>
-                    <p className="text-xl text-[#555555] py-5 break-words">
+                    <p className="max-sm:text-sm text-xl text-[#555555] py-5 break-words">
                       {item.description}
                     </p>
                   </div>

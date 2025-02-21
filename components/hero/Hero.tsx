@@ -3,8 +3,6 @@ import React, { useEffect, useRef } from "react";
 import Container from "../global/Container";
 import GButton from "../global/GButton";
 import gsap from "gsap";
-// import Lottie, { LottieRefCurrentProps } from "lottie-react";
-// import Animation from "./animationData.json";
 
 const Hero = () => {
   const boxRef = useRef(null);
@@ -37,7 +35,7 @@ const Hero = () => {
             if (videoRef.current) {
               videoRef.current.play(); // ✅ Now TypeScript knows it's a video element
             }
-                        // Play the Lottie animation when this step starts
+            // Play the Lottie animation when this step starts
             // if (lottieRef.current) {
             //   lottieRef.current.play(); // No TypeScript error
             // }
@@ -50,13 +48,13 @@ const Hero = () => {
   return (
     <Container
       ref={bg}
-      className="bg-gradient-to-r flex flex-col md:flex-row h-auto md:h-[28rem] from-orange-200 to-purple-300 py-6 px-4 md:px-6 my-0 rounded-xl w-full"
+      className="justify-between bg-gradient-to-r flex flex-col md:flex-row h-auto md:h-[28rem] from-orange-200 to-purple-300 py-6 px-4 md:px-6 my-0 rounded-xl w-full"
     >
       {/* Left Section */}
-      <div className="w-full px-4 md:px-0 lg:px-16 xl:px-20 flex flex-col h-full">
+      <div className="w-full md:w-[60%]  px-4 md:px-0 lg:px-16 xl:px-20 flex flex-col h-full hero-left-container">
         <h1
           ref={boxRef}
-          className="text-3xl md:text-5xl md:w-[30rem] md:leading-[4rem] md:mt-10 font-bold mt-2 leading-[2rem] sm:leading-[5rem] text-[#292929] font-sans"
+          className=" text-3xl md:text-6xl w-full md:w-full md:leading-[4rem] md:mt-10 font-bold mt-2 leading-[2rem] sm:leading-[5rem] text-[#292929] font-sans"
         >
           The all-in-one app for off-market deals
         </h1>
@@ -79,7 +77,7 @@ const Hero = () => {
       {/* Right Section */}
       <div
         className="
-        w-full h-full sm:flex sm:items-center sm:mt-3 lg:mt-0"
+        w-full h-full sm:flex sm:items-center sm:mt-3 lg:mt-0 hero-right-container md:w-[40%]"
         ref={heroAnim}
       >
         <video

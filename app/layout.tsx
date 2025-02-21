@@ -18,8 +18,13 @@ const geistMono = Geist_Mono({
 const poppins = Poppins({ subsets: ["latin"], weight: ["400"] });
 
 export const metadata: Metadata = {
-  title: "Tryswitch Landing pAGE",
+  title: "Tryswitch",
   description: "Developer Farheen Tahir!",
+  icons: {
+    icon: "/assets/favicon/favicon.ico",
+    shortcut: "/assets/favicon/favicon.ico",
+    apple: "/assets/favicon/favicon.ico", 
+  },
 };
 
 function Loader() {

@@ -244,7 +244,7 @@ const Community = () => {
 
   return (
     <Container
-      className="mb-20 flex  justify-center items-start overflow-hidden box-1 md:flex-row flex-col"
+      className="mb-20 flex mt-10  justify-center items-start overflow-hidden box-1 md:flex-row flex-col"
       ref={communityBoxRef}
     >
       <div className="w-full md:w-1/2 ">
@@ -255,7 +255,7 @@ const Community = () => {
           Join Our Community
         </h1>
         <p
-          className="text-xl max-sm:text-sm  text-gray-500 py-2 pr-7 my-7 md:text-start text-center"
+          className="text-xl max-sm:text-sm  text-gray-500 py-2 max-sm:pr-0 pr-7 my-7 md:text-start text-center"
           ref={communityParaRef}
         >
           Become a part of a thriving community of investors and sellers.

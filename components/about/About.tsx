@@ -223,110 +223,110 @@ const About = () => {
 
 
 //this is using useEffect
-useEffect(() => {
-  const timeline = gsap.timeline({
-    scrollTrigger: {
-      trigger: aboutContainerRef.current,
-      // start: "top -30%",//make it 20% // Trigger animation when the top of the container hits the viewport
-      // end: "top -200%", // End trigger
-      start: "top 0%",
-      end: "+=500%",
-      scrub: 3, // Smooth scroll-based animation
-      // markers: true, // Enable markers for debugging
-      pin: true, // Pin the container during animation
-    },
-  });
+// useEffect(() => {
+//   const timeline = gsap.timeline({
+//     scrollTrigger: {
+//       trigger: aboutContainerRef.current,
+//       // start: "top -30%",//make it 20% // Trigger animation when the top of the container hits the viewport
+//       // end: "top -200%", // End trigger
+//       start: "top 0%",
+//       end: "+=500%",
+//       scrub: 3, // Smooth scroll-based animation
+//       // markers: true, // Enable markers for debugging
+//       pin: true, // Pin the container during animation
+//     },
+//   });
 
-  // Check if the screen width is small
-  const isSmallScreen = window.innerWidth < 768;
+//   // Check if the screen width is small
+//   const isSmallScreen = window.innerWidth < 768;
 
-  if (isSmallScreen) {
-    // For small screens, animate cards one by one
-    const cardAnimations = [
-      { card: ".card-1", phone: ".card-1 .phone", text: ".card-1 .text", delay: 1 },
-      { card: ".card-2", phone: ".card-2 .phone", text: ".card-2 .text", delay: 2 },
-      { card: ".card-3", phone: ".card-3 .phone", text: ".card-3 .text", delay: 3 },
-    ];
+//   if (isSmallScreen) {
+//     // For small screens, animate cards one by one
+//     const cardAnimations = [
+//       { card: ".card-1", phone: ".card-1 .phone", text: ".card-1 .text", delay: 1 },
+//       { card: ".card-2", phone: ".card-2 .phone", text: ".card-2 .text", delay: 2 },
+//       { card: ".card-3", phone: ".card-3 .phone", text: ".card-3 .text", delay: 3 },
+//     ];
 
-    // Step 1: Animate cards (text and phone) one by one
-    cardAnimations.forEach((animation) => {
-      timeline
-        .fromTo(
-          animation.card, // Animate the card itself
-          { y: 200, opacity: 0 }, // Starting position
-          { y: 0, opacity: 1, duration: 1, delay: 
-            animation.delay 
-          } // Final position
-        )
-        .fromTo(
-          animation.phone, // Animate the phone image inside the card
-          { y: 100, opacity: 0 }, // Starting position for phone
-          { y: 0, opacity: 1, duration: 2, delay:  
-            animation.delay + 0.3 
-          } // Final position for phone
-        )
-        .fromTo(
-          animation.text, // Animate the text inside the card
-          { opacity: 0 }, // Starting position for text
-          { opacity: 1, duration: 1, delay: 
-             animation.delay + 0.6 
-            } // Final position for text
-        );
-    });
-  } else {
-    // For larger screens, use the previous timeline animation for a simultaneous effect
-    timeline
-    .fromTo(
-      ".card-1",
-      { x: -200, opacity: 0 },
-      { x: 0, opacity: 1, duration: 8 } // Increased duration for slower animation
-    )
-    .fromTo(
-      ".card-2",
-      { x: -200, opacity: 0 },
-      { x: 0, opacity: 1, duration: 10 } // Increased duration for slower animation
-    )
-    .fromTo(
-      ".card-3",
-      { x: -200, opacity: 0 },
-      { x: 0, opacity: 1, duration: 12 } // Increased duration for slower animation
-    );
+//     // Step 1: Animate cards (text and phone) one by one
+//     cardAnimations.forEach((animation) => {
+//       timeline
+//         .fromTo(
+//           animation.card, // Animate the card itself
+//           { y: 200, opacity: 0 }, // Starting position
+//           { y: 0, opacity: 1, duration: 1, delay: 
+//             animation.delay 
+//           } // Final position
+//         )
+//         .fromTo(
+//           animation.phone, // Animate the phone image inside the card
+//           { y: 100, opacity: 0 }, // Starting position for phone
+//           { y: 0, opacity: 1, duration: 2, delay:  
+//             animation.delay + 0.3 
+//           } // Final position for phone
+//         )
+//         .fromTo(
+//           animation.text, // Animate the text inside the card
+//           { opacity: 0 }, // Starting position for text
+//           { opacity: 1, duration: 1, delay: 
+//              animation.delay + 0.6 
+//             } // Final position for text
+//         );
+//     });
+//   } else {
+//     // For larger screens, use the previous timeline animation for a simultaneous effect
+//     timeline
+//     .fromTo(
+//       ".card-1",
+//       { x: -200, opacity: 0 },
+//       { x: 0, opacity: 1, duration: 8 } // Increased duration for slower animation
+//     )
+//     .fromTo(
+//       ".card-2",
+//       { x: -200, opacity: 0 },
+//       { x: 0, opacity: 1, duration: 10 } // Increased duration for slower animation
+//     )
+//     .fromTo(
+//       ".card-3",
+//       { x: -200, opacity: 0 },
+//       { x: 0, opacity: 1, duration: 12 } // Increased duration for slower animation
+//     );
   
-  // Slowing down the animations inside the cards
-  const contentAnimations = [
-    {
-      card: ".card-1",
-      phone: { class: ".card-1 .phone", from: { y: 100, opacity: 0 }, to: { y: 0, opacity: 1 } },
-      text: { class: ".card-1 .text", from: { opacity: 0 }, to: { opacity: 1 } }
-    },
-    {
-      card: ".card-2",
-      phone: { class: ".card-2 .phone", from: { y: -200, opacity: 0 }, to: { y: 0, opacity: 1 } },
-      text: { class: ".card-2 .text", from: { opacity: 0 }, to: { opacity: 1 } }
-    },
-    {
-      card: ".card-3",
-      phone: { class: ".card-3 .phone", from: { y: 100, opacity: 0 }, to: { y: 0, opacity: 1 } },
-      text: { class: ".card-3 .text", from: { opacity: 0 }, to: { opacity: 1 } }
-    }
-  ];
+//   // Slowing down the animations inside the cards
+//   const contentAnimations = [
+//     {
+//       card: ".card-1",
+//       phone: { class: ".card-1 .phone", from: { y: 100, opacity: 0 }, to: { y: 0, opacity: 1 } },
+//       text: { class: ".card-1 .text", from: { opacity: 0 }, to: { opacity: 1 } }
+//     },
+//     {
+//       card: ".card-2",
+//       phone: { class: ".card-2 .phone", from: { y: -200, opacity: 0 }, to: { y: 0, opacity: 1 } },
+//       text: { class: ".card-2 .text", from: { opacity: 0 }, to: { opacity: 1 } }
+//     },
+//     {
+//       card: ".card-3",
+//       phone: { class: ".card-3 .phone", from: { y: 100, opacity: 0 }, to: { y: 0, opacity: 1 } },
+//       text: { class: ".card-3 .text", from: { opacity: 0 }, to: { opacity: 1 } }
+//     }
+//   ];
   
-  contentAnimations.forEach((animation, index) => {
-    timeline
-      .fromTo(
-        animation.phone.class, // Animate the phone image
-        animation.phone.from,
-        { ...animation.phone.to, duration: 6, delay: index * 0.8 } // Slower animation and longer delay
-      )
-      .fromTo(
-        animation.text.class, // Animate the text after the phone animation
-        animation.text.from,
-        { ...animation.text.to, duration: 3, delay: 0.5 } // Slower animation and slight delay
-      );
-  });
+//   contentAnimations.forEach((animation, index) => {
+//     timeline
+//       .fromTo(
+//         animation.phone.class, // Animate the phone image
+//         animation.phone.from,
+//         { ...animation.phone.to, duration: 6, delay: index * 0.8 } // Slower animation and longer delay
+//       )
+//       .fromTo(
+//         animation.text.class, // Animate the text after the phone animation
+//         animation.text.from,
+//         { ...animation.text.to, duration: 3, delay: 0.5 } // Slower animation and slight delay
+//       );
+//   });
   
-  }
-}, []);
+//   }
+// }, []);
 
 
 
@@ -340,7 +340,7 @@ return (
         </span>
         ?
       </h2>
-      <Container ref={aboutContainerRef} className="bg-custom-image h-[24rem] p-0 rounded-xl bg-cover bg-center  "  >
+      <Container ref={aboutContainerRef} className="bg-custom-image  h-[24rem] p-0 rounded-xl bg-cover bg-center  "  >
         <div className="relative w-full flex-col md:flex-row  mx-auto top-1/2 justify-center flex md:justify-around items-start   gap-10 pb-2 overflow-hidden" >
           <CardAbout className="card-1" imgString="/assets/images/FirstAbout.png" 
           // timeline={timeline}

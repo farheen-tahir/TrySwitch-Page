@@ -121,3 +121,134 @@
   transform: rotate(10deg);
 
 }
+@media (min-width: 768px) and (max-width: 820px) {
+  .hero-left-container {
+    width: 65% !important;
+  }
+  .hero-left-container h1 {
+    width: 100%;
+  }
+  .hero-right-container {
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    width: 50%;
+  }
+}
+@media (min-width: 820) and (max-width: 912px) {
+  .hero-left-container  {
+    width: 62% !important;
+  }
+  .hero-left-container h1 {
+    width: 100%;
+  }
+  .hero-right-container {
+    position: absolute;
+    top: -23%;
+    left: 50%;
+    width: 50%;
+  }
+}
+@media (min-width: 912px) and (max-width: 1000px) {
+  .hero-left-container {
+    width: 56% !important;
+   }
+  .hero-right-container {
+    position: absolute;
+    top: -26%;
+    left: 50%;
+    width: 50%;
+  }
+}
+@media (min-width: 912px) and (max-width: 1024px) {
+  .hero-left-container {
+   padding: 0 !important;
+  }
+
+}
+
+@media (min-width: 1500px) and (max-width: 3440px) {
+  .solution-right-container {
+    position: absolute !important;
+    left: 60% !important;
+  }
+
+}
+/* Solution Section  */
+@media (min-width: 768px) and (max-width: 991px) {
+  .solution-title {
+    padding-bottom: 0 !important;
+  }
+  .solution-description {
+    padding: 0 !important;
+  }
+  .solution-right-container {
+    left: 65% !important;
+    max-width: 15rem !important;
+
+   }
+   .tilted-box {
+    width: 15rem;
+    height: 15rem;
+   }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .solution-right-container {
+    left: 65% !important;
+   }
+}
+/* About Section  */
+@media (min-width: 576px) and (max-width: 767px) {
+
+  .about-card {
+    width: 75%;
+    height: 40rem !important;
+  }
+  .inner-content {
+    width: 100%;
+  }
+  .card-header {
+    height: 12rem;
+  }
+  .card-title {
+    font-size: 40px;
+  }
+  .card-description {
+    font-size: 30px;
+  }
+  .card-content {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    height: 28rem;
+  }
+  .about-opposite-img {
+    top: 15% !important;
+    left: 2% !important;
+    width: 100% !important;
+  }
+  .about-img {
+   position: relative;
+   bottom: 10%;
+   width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .about-card{
+    width: 12rem !important;
+    height: 18rem !important;
+  }
+  .about-img {
+    width: 15rem !important;
+  }
+  .card-description {
+    display: none;
+  } 
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .about-card{
+    width: 18rem !important;
+    height: 25rem !important;
+  }
+}
