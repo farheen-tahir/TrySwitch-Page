@@ -39,7 +39,7 @@ const AppInfo = ({
     <Container
     className={`h-full justify-between flex ${
       userType === 1 ? "flex-col-reverse" : "flex-col"
-    } lg:flex-row py-6 px-4 md:px-6  rounded-xl max-w-[65rem] mx-0`}
+    } lg:flex-row py-6 px-4 md:px-6  rounded-xl max-w-[65rem] my-12 mx-0`}
   >
       {userType === 2 && (
         <div className="w-full lg:w-1/2  ">

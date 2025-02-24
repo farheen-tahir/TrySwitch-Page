@@ -11,7 +11,7 @@ import GradientIcon from "./GradientIcon";
 import Container from "../global/Container";
 const Footer = () => {
   return (
-    <Container className="lg:mx-auto px-0  lg:max-w-full  xl:max-w-[85rem]">
+    <Container className="footer lg:mx-auto px-0  lg:max-w-full  xl:max-w-[85rem]">
     <footer className="shadow-2xl">
       <div className="w-full flex flex-col lg:flex-row justify-between">
         <div className="w-full lg:w-1/2 px-8 lg:px-32 py-10 max-sm:py-4">

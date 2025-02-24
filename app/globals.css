@@ -198,8 +198,15 @@
    }
 }
 /* About Section  */
+@media (max-width: 575px) {
+  .about-container {
+    margin-bottom: 75rem !important;
+  }
+}
 @media (min-width: 576px) and (max-width: 767px) {
-
+  .about-container {
+    margin-bottom: 118rem !important;
+  }
   .about-card {
     width: 75%;
     height: 40rem !important;
@@ -235,6 +242,9 @@
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
+  .about-container {
+    margin-bottom: 8rem !important;
+  }
   .about-card{
     width: 12rem !important;
     height: 18rem !important;
@@ -247,8 +257,22 @@
   } 
 }
 @media (min-width: 992px) and (max-width: 1199px) {
+
   .about-card{
     width: 18rem !important;
     height: 25rem !important;
   }
 }
+
+/* footer section  */
+@media (max-width: 1366px) {
+  .footer {
+    max-width: 85rem !important;
+  }
+}
+@media (min-width: 1367px) {
+  .footer {
+    max-width: 80rem !important;
+  }
+}
+

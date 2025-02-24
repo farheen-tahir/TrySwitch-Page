@@ -26,13 +26,13 @@ export default function Home() {
       <section>
         <AppInfo
           userType={1}
-          animationPath="/assets/webm/seller-animation.webm"
+          animationPath="/assets/webm/investor-animation.webm"
         />
       </section>
       <section>
         <AppInfo
           userType={2}
-          animationPath="/assets/webm/investor-animation.webm"
+          animationPath="/assets/webm/seller-animation.webm"
         />
       </section>
       <section>

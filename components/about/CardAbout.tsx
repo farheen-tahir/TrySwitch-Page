@@ -13,9 +13,14 @@ import { cn } from "@/lib/utils";
 const CardAbout = ({
   className,
   imgString,
+  title,
+  desc,
 }: {
   className?: string;
   imgString: string;
+  title:string;
+  desc:string;
+
 }) => {
   const isFooterContent = className?.includes("card-2");
 
@@ -49,9 +54,9 @@ const CardAbout = ({
             />
           </CardContent>
           <CardFooter className="text-center flex flex-col text">
-            <CardTitle className="card-title w-full text-[20px]">Trusted Connections</CardTitle>
+            <CardTitle className="card-title w-full text-[20px]">{title}</CardTitle>
             <CardDescription className="card-description w-full text-[16px] px-0 py-2">
-              Verified sellers, secure investments.
+              {desc}
             </CardDescription>
           </CardFooter>
         </div>
