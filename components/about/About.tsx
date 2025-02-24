@@ -488,7 +488,7 @@ const About = () => {
   //     );
   //   });
   // }, []);
-  let innerContentTriggered = false;
+  // const innerContentTriggered = false;
 
   useEffect(() => {
     const isSmallScreen = window.innerWidth < 768;

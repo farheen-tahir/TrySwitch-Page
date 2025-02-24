@@ -34,13 +34,13 @@ const AppInfo = ({
         once: true,
       },
     });
-  }, []);
+  }, [userType]);
   return (
     <Container
-    className={`h-full justify-between flex ${
-      userType === 1 ? "flex-col-reverse" : "flex-col"
-    } lg:flex-row py-6 px-4 md:px-6  rounded-xl max-w-[65rem] my-12 mx-0`}
-  >
+      className={`h-full justify-between flex ${
+        userType === 1 ? "flex-col-reverse" : "flex-col"
+      } lg:flex-row py-6 px-4 md:px-6  rounded-xl max-w-[65rem] my-12 mx-0`}
+    >
       {userType === 2 && (
         <div className="w-full lg:w-1/2  ">
           <h1 className="text-4xl font-black  text-primary py-2 md:text-start text-center">
