@@ -31,6 +31,7 @@ const Contact = () => {
   return (
     <Container className=" flex mb-20 flex-col lg:flex-row max-sm:p-0 justify-between max-lg:gap-[3rem] ">
       <div
+        id="contact"
         className="w-full xl:w-[35%] lg:w-[37%] lg:max-w-[1200px]:w-[37%] lg:block hidden "
         ref={contactImgRef} // h-[10%]
       >

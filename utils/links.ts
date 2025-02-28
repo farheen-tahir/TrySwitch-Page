@@ -5,11 +5,10 @@ type NavLink={
     label:string
 }
 
-export const links:NavLink[]=[
-    {href:"/",label:"Why Tryswitch?"},
-    {href:"/about",label:"Features"},
-    {href:"/products",label:"Solutions"},
-    {href:"/favorites",label:"Contact Us"},
-    {href:"/cart",label:"Login"}
-
-]
+export const links: NavLink[] = [
+    { href: "#why-tryswitch", label: "Why Tryswitch?" },
+    { href: "#features", label: "Features" },
+    { href: "#solutions", label: "Solutions" },
+    { href: "#contact", label: "Contact Us" },
+    { href: "", label: "Login" }
+];

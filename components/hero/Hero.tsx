@@ -3,6 +3,7 @@ import React, { useEffect, useRef } from "react";
 import Container from "../global/Container";
 import GButton from "../global/GButton";
 import gsap from "gsap";
+// import Image from "next/image";
 
 const Hero = () => {
   const boxRef = useRef(null);
@@ -48,7 +49,7 @@ const Hero = () => {
   return (
     <Container
       ref={bg}
-      className="justify-between bg-gradient-to-r flex flex-col md:flex-row h-auto md:h-[28rem] from-orange-200 to-purple-300 py-6 px-4 md:px-6 my-0 rounded-xl w-full"
+      className="hero-section justify-between bg-gradient-to-r flex flex-col md:flex-row h-auto md:h-[28rem] from-orange-200 to-purple-300 py-6 px-4 md:px-6 my-0 rounded-xl w-full"
     >
       {/* Left Section */}
       <div className="w-full md:w-[60%]  px-4 md:px-0 lg:px-16 xl:px-20 flex flex-col h-full hero-left-container">
@@ -88,15 +89,18 @@ const Hero = () => {
           className="w-full  h-auto"
         >
           <source src={"/assets/webm/hero-section.webm"} type="video/webm" />
-          <source src={"/assets/webm/hero-section.webm"} type="video/mp4" />
+          <source src={"/assets/webm/hero-section.mp4"} type="video/mp4" />
           Your browser does not support this
         </video>
         {/* <Image
           priority
+          ref={imageRef}
           width={500}
           height={500}
           alt="phone-hero.png"
-          src="/assets/images/Tryswitch-hero.png"
+          // src="/assets/images/Tryswitch-hero.png"
+          src="/assets/images/0000.png"
+          unoptimized
           // className="w-[16rem] object-cover bg-about-image bg-contain bg-center phone"
         /> */}
 

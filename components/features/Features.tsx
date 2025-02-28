@@ -378,6 +378,7 @@ const Features = () => {
   }, [data.length]);
   return (
     <div
+      id="features"
       ref={containerRef}
       className="w-full my-5 feature-section overflow-hidden feature-section"
     >

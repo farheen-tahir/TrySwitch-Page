@@ -6,7 +6,10 @@ import { motion } from "framer-motion";
 const Solutions = () => {
   const [hovered, setHovered] = useState(false);
   return (
-    <div className="bg-gradient-to-r flex flex-col md:flex-row h-auto md:h-[25rem] from-[#270AAD] to-[#D9D2FC] py-6 px-4 md:px-6 mt-20 rounded-xl max-w-[65rem] mx-0 ">
+    <div
+      id="solutions"
+      className="bg-gradient-to-r flex flex-col md:flex-row h-auto md:h-[25rem] from-[#270AAD] to-[#D9D2FC] py-6 px-4 md:px-6 mt-20 rounded-xl max-w-[65rem] mx-0 "
+    >
       <div className="w-full md:w-[65%] pl-[2rem] ">
         <h1 className="solution-title text-[3rem] font-black text-white py-2 md:text-start text-center">
           Solutions

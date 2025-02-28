@@ -889,7 +889,10 @@ const About: React.FC = () => {
   }, []);
 
   return (
-    <div className="about-container w-full my-5 h-auto mb-[16rem] p-0">
+    <div
+      className="about-container w-full my-5 h-auto mb-[16rem] p-0 "
+      id="why-tryswitch"
+    >
       <h2 className="mx-auto text-center text-3xl font-black py-5">
         Why{" "}
         <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2A0EA6] to-[#F54208]">
@@ -906,7 +909,7 @@ const About: React.FC = () => {
             className="card-1 card"
             imgString="/assets/images/FirstAbout.png"
             title="Trusted Connections"
-            desc="Verified deals, unmatched discounts."
+            desc="Verified sellers, secure investments."
           />
           <CardAbout
             className="card-2 card"

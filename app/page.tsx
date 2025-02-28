@@ -12,7 +12,7 @@ export default function Home() {
       <section>
         <Hero />
       </section>
-      <section 
+      <section
       // className="xxs:h-[131rem] xs:h-[145rem] sm:h-[151rem]  md:h-auto"
       >
         <About />
@@ -26,13 +26,13 @@ export default function Home() {
       <section>
         <AppInfo
           userType={1}
-          animationPath="/assets/webm/investor-animation.webm"
+          animationPath="/assets/webm/investor-animation.mp4"
         />
       </section>
       <section>
         <AppInfo
           userType={2}
-          animationPath="/assets/webm/seller-animation.webm"
+          animationPath="/assets/webm/seller-animation.mp4"
         />
       </section>
       <section>
