@@ -1,33 +1,43 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import Container from "../global/Container";
 import Form from "./Form";
 import Image from "next/image";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 const Contact = () => {
   const contactImgRef = useRef(null); // Use ref for the target element
 
-  useEffect(() => {
+  useGSAP(() => {
     gsap.from(contactImgRef.current, {
-      x: -200,
+      x: -100,
+      duration: 1,
+      delay: 0.5,
       opacity: 0,
-      duration: 3,
-      ease: "power2.out",
-      scrollTrigger: {
-        // markers: true,
-        scroller: "body",
-        trigger: contactImgRef.current, // Element to trigger the animation
-        start: "top 80%", // Animation starts when top of the element hits 80% of the viewport
-        end: "top 30%", // Animation ends when top of the element hits 30% of the viewport
-        // scrub: 3, //mooth scrubbing
-        toggleActions: "play none none none", // Play once, no reverse
-        once: true,
-      },
+      scrollTrigger: contactImgRef.current,
     });
-  }, []);
+  });
+  // useEffect(() => {
+  //   gsap.from(contactImgRef.current, {
+  //     x: -200,
+  //     opacity: 0,
+  //     duration: 3,
+  //     ease: "power2.out",
+  //     scrollTrigger: {
+  //       // markers: true,
+  //       scroller: "body",
+  //       trigger: contactImgRef.current, // Element to trigger the animation
+  //       start: "top 80%", // Animation starts when top of the element hits 80% of the viewport
+  //       end: "top 30%", // Animation ends when top of the element hits 30% of the viewport
+  //       // scrub: 3, //mooth scrubbing
+  //       toggleActions: "play none none none", // Play once, no reverse
+  //       once: true,
+  //     },
+  //   });
+  // }, []);
   return (
     <Container className=" flex mb-20 flex-col lg:flex-row max-sm:p-0 justify-between max-lg:gap-[3rem] ">
       <div

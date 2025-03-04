@@ -1,10 +1,11 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import Container from "../global/Container";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useGSAP } from "@gsap/react";
 
 const Community = () => {
   gsap.registerPlugin(ScrollTrigger);
@@ -111,136 +112,172 @@ const Community = () => {
   //     },
   //   });
   // }, []);
-  useEffect(() => {
-    const mq = gsap.matchMedia(); // Initialize matchMedia for media queries
 
-    mq.add("(min-width: 768px)", () => {
-      // Animation for medium and larger screens
-      gsap.from(
-        [
-          communityTitleRef.current,
-          communityParaRef.current,
-          communityBtnRef.current,
-        ],
-        {
-          x: -200,
-          opacity: 0,
-          duration: 3,
-          // delay: 2,
-          stagger: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-            scroller: "body",
-            trigger: ".box-1",
-            start: "top 80%",
-            end: "top 30%",
-            // scrub: 3,
-            // markers:true
-            toggleActions: "play none none none", // Play once, no reverse
-            once: true,
-          },
-        }
-      );
+  // this is useGsap
 
-      gsap.from(communityImgRef.current, {
-        x: 200,
-        opacity: 0,
-        duration: 3,
-        ease: "power2.out",
-        scrollTrigger: {
-          scroller: "body",
-          trigger: ".box-1",
-          start: "top 80%",
-          end: "top -30%",
-          // scrub: 3,
-          toggleActions: "play none none none", // Play once, no reverse
-          once: true,
-        },
-      });
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: communityBoxRef.current,
+        start: "top 80%", // Adjust as needed
+        // toggleActions: "play none none reverse",
+      },
     });
 
-    mq.add("(max-width: 767px)", () => {
-      // Animation for small screens
-      gsap.from(
-        [
-          communityTitleRef.current,
-          communityParaRef.current,
-          communityBtnRef.current,
-          // communityTitleRef.current
-        ],
-        {
-          x: 100, // Slide up from bottom to its position
-          opacity: 0,
-          duration: 1.5,
-          stagger: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-            // markers: true,
-            scroller: "body",
-            trigger: ".box-1",
-            start: "top 50%",
-            end: "top 30%",
-            toggleActions: "play none none none", // Play once, no reverse
-            once: true,
-            // scrub: 3,
-          },
-        }
+    tl.from(communityTitleRef.current, { x: -100, duration: 1, opacity: 0 })
+      .from(
+        communityParaRef.current,
+        { x: -100, duration: 1, opacity: 0 },
+        "-=0.5"
+      )
+      .from(
+        communityBtnRef.current,
+        { x: -100, duration: 1, opacity: 0 },
+        "-=0.5"
       );
 
-      // gsap.from(communityParaRef.current, {
-      //   x: 100, // Slide each line of the paragraph up
-      //   opacity: 0,
-      //   duration: 1.5,
-      //   // delay: 0.5,
-      //   // stagger: 0.2, // Stagger animation for each line
-      //   ease: "power2.out",
-      //   scrollTrigger: {
-      //     // markers: true,
-      //     scroller: "body",
-      //     trigger: communityTitleRef.current,
-      //     start: "top 10%",
-      //     end: "top 30%",
-      //     // scrub: 3,
-      //   },
-      // });
-
-      // gsap.from(communityBtnRef.current, {
-      //   x: 100, // Slide up from bottom to its position
-      //   opacity: 0,
-      //   duration: 1.5,
-      //   delay: 1, // Delay to ensure it animates after paragraph
-      //   ease: "power2.out",
-      //   scrollTrigger: {
-      //     // markers: true,
-      //     scroller: "body",
-      //     trigger: communityParaRef.current,
-      //     start: "top 10%",
-      //     end: "top 30%",
-      //     scrub: 3,
-      //   },
-      // });
-
-      gsap.from(communityImgRef.current, {
-        x: 100, // Slide up from bottom to its position
-        opacity: 0,
-        duration: 1.5,
-        // delay: 1, // Delay to ensure it animates after the button
-        ease: "power2.out",
-        scrollTrigger: {
-          // markers: true,
-          scroller: "body",
-          trigger: communityBtnRef.current,
-          start: "top 80%",
-          end: "top -200%",
-          // scrub: 3,
-        },
-      });
+    gsap.from(communityImgRef.current, {
+      x: 100,
+      duration: 1,
+      opacity: 0,
+      delay: 0.5,
+      scrollTrigger: {
+        trigger: communityBoxRef.current,
+        start: "top 80%",
+        // toggleActions: "play none none reverse",
+      },
     });
-
-    return () => {
-      mq.revert(); // Clean up media query animations when component unmounts
-    };
   }, []);
+  // useEffect(() => {
+  //   const mq = gsap.matchMedia(); // Initialize matchMedia for media queries
+
+  //   mq.add("(min-width: 768px)", () => {
+  //     // Animation for medium and larger screens
+  //     gsap.from(
+  //       [
+  //         communityTitleRef.current,
+  //         communityParaRef.current,
+  //         communityBtnRef.current,
+  //       ],
+  //       {
+  //         x: -200,
+  //         opacity: 0,
+  //         duration: 3,
+  //         // delay: 2,
+  //         stagger: 1,
+  //         ease: "power2.out",
+  //         scrollTrigger: {
+  //           scroller: "body",
+  //           trigger: ".box-1",
+  //           start: "top 80%",
+  //           end: "top 30%",
+  //           // scrub: 3,
+  //           // markers:true
+  //           toggleActions: "play none none none", // Play once, no reverse
+  //           once: true,
+  //         },
+  //       }
+  //     );
+
+  //     gsap.from(communityImgRef.current, {
+  //       x: 200,
+  //       opacity: 0,
+  //       duration: 3,
+  //       ease: "power2.out",
+  //       scrollTrigger: {
+  //         scroller: "body",
+  //         trigger: ".box-1",
+  //         start: "top 80%",
+  //         end: "top -30%",
+  //         // scrub: 3,
+  //         toggleActions: "play none none none", // Play once, no reverse
+  //         once: true,
+  //       },
+  //     });
+  //   });
+
+  //   mq.add("(max-width: 767px)", () => {
+  //     // Animation for small screens
+  //     gsap.from(
+  //       [
+  //         communityTitleRef.current,
+  //         communityParaRef.current,
+  //         communityBtnRef.current,
+  //         // communityTitleRef.current
+  //       ],
+  //       {
+  //         x: 100, // Slide up from bottom to its position
+  //         opacity: 0,
+  //         duration: 1.5,
+  //         stagger: 1,
+  //         ease: "power2.out",
+  //         scrollTrigger: {
+  //           // markers: true,
+  //           scroller: "body",
+  //           trigger: ".box-1",
+  //           start: "top 50%",
+  //           end: "top 30%",
+  //           toggleActions: "play none none none", // Play once, no reverse
+  //           once: true,
+  //           // scrub: 3,
+  //         },
+  //       }
+  //     );
+
+  //     // gsap.from(communityParaRef.current, {
+  //     //   x: 100, // Slide each line of the paragraph up
+  //     //   opacity: 0,
+  //     //   duration: 1.5,
+  //     //   // delay: 0.5,
+  //     //   // stagger: 0.2, // Stagger animation for each line
+  //     //   ease: "power2.out",
+  //     //   scrollTrigger: {
+  //     //     // markers: true,
+  //     //     scroller: "body",
+  //     //     trigger: communityTitleRef.current,
+  //     //     start: "top 10%",
+  //     //     end: "top 30%",
+  //     //     // scrub: 3,
+  //     //   },
+  //     // });
+
+  //     // gsap.from(communityBtnRef.current, {
+  //     //   x: 100, // Slide up from bottom to its position
+  //     //   opacity: 0,
+  //     //   duration: 1.5,
+  //     //   delay: 1, // Delay to ensure it animates after paragraph
+  //     //   ease: "power2.out",
+  //     //   scrollTrigger: {
+  //     //     // markers: true,
+  //     //     scroller: "body",
+  //     //     trigger: communityParaRef.current,
+  //     //     start: "top 10%",
+  //     //     end: "top 30%",
+  //     //     scrub: 3,
+  //     //   },
+  //     // });
+
+  //     gsap.from(communityImgRef.current, {
+  //       x: 100, // Slide up from bottom to its position
+  //       opacity: 0,
+  //       duration: 1.5,
+  //       // delay: 1, // Delay to ensure it animates after the button
+  //       ease: "power2.out",
+  //       scrollTrigger: {
+  //         // markers: true,
+  //         scroller: "body",
+  //         trigger: communityBtnRef.current,
+  //         start: "top 80%",
+  //         end: "top -200%",
+  //         // scrub: 3,
+  //       },
+  //     });
+  //   });
+
+  //   return () => {
+  //     mq.revert(); // Clean up media query animations when component unmounts
+  //   };
+  // }, []);
 
   return (
     <Container
