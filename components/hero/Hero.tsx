@@ -290,6 +290,7 @@ const Hero = () => {
             className="hero-image w-[80%] sm:w-[70%] md:w-auto max-w-[500px]"
             width={500}
             height={500}
+            unoptimized
           />
         )}
       </div>
