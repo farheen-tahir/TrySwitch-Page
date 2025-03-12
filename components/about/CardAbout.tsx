@@ -47,7 +47,7 @@ const CardAbout = ({
               height={400}
               alt="phone.png"
               src={imgString}
-              className="about-img about-opposite-img w-[22rem] top-[-15%] md:w-[20rem] absolute bottom-0 object-cover 
+              className="about-img-second about-opposite-img w-[8rem] top-0 md:top-[-15%] md:w-[10rem] absolute bottom-0 object-cover 
            
                bg-contain bg-center phone"
             />

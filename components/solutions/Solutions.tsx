@@ -40,7 +40,7 @@ const Solutions = () => {
         <div className="tilted-box max-md:hidden w-[20rem] h-[20rem] bg-gradient-to-r from-[#270AAD] to-[#D9D2FC] z-10 absolute left-0 top-0 rounded-xl custom-transform"></div>
         <div className="tilted-box max-md:hidden w-[20rem] h-[20rem] bg-gradient-to-r from-[#270AAD] to-[#D9D2FC] z-0 absolute left-0 top-0 rounded-xl custom-transform2"></div>
       </div> */}
-      <div className="solution-right-container max-w-[90%] md:max-w-[20rem] relative md:absolute md:left-[50rem] self-center max-md:mt-5 lg:left-[55rem]">
+      <div className="solution-right-container max-w-[90%] md:max-w-[20rem] relative md:absolute md:left-[50rem] self-center max-md:mt-5 lg:left-[55rem] xl:left-[63%]">
         {/* Main Image - Triggers Hover Animation */}
         <div
           onMouseEnter={() => setHovered(true)}

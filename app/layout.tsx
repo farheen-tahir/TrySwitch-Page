@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Container from "@/components/global/Container";
 import Footer from "@/components/footer/Footer";
+import Loader from "@/components/loader/Loader"; 
 import { Suspense } from "react";
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,13 +28,13 @@ export const metadata: Metadata = {
   },
 };
 
-function Loader() {
-  return (
-    <div className="loader-container">
-      <div className="loader"></div>
-    </div>
-  );
-}
+// function Loader() {
+//   return (
+//     <div className="loader-container">
+//       <div className="loader"></div>
+//     </div>
+//   );
+// }
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -44,6 +45,7 @@ export default function RootLayout({
       <body
         className={` ${poppins.className} ${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Loader />
         <Navbar />
         <Suspense fallback={<Loader />}>
           <Container className="py-2">{children}</Container>
@@ -53,3 +55,4 @@ export default function RootLayout({
     </html>
   );
 }
+

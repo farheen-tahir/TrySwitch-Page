@@ -281,7 +281,7 @@ const Community = () => {
 
   return (
     <Container
-      className="mb-20 flex mt-10 my-20  justify-center items-start overflow-hidden box-1 md:flex-row flex-col"
+      className="mb-20 flex    justify-center items-start overflow-hidden box-1 md:flex-row flex-col"
       ref={communityBoxRef}
     >
       <div className="w-full md:w-1/2 ">
