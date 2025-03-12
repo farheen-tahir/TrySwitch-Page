@@ -1,23 +1,24 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
-  images:{
-    remotePatterns:[
+  images: {
+    unoptimized: true, // Ensure Next.js does not optimize local images
+    remotePatterns: [
       {
         protocol: "https",
-        hostname: "gratisography.com", // Remove "https://" from hostname
-        port: "", // Keep this empty if no port is used
-        pathname: "/wp-content/uploads/**", // Match the correct path for the images
+        hostname: "gratisography.com", 
+        port: "", 
+        pathname: "/wp-content/uploads/**", 
       },
       {
         protocol: "https",
-        hostname: "encrypted-tbn0.gstatic.com", // Remove "https://" from hostname
-        port: "", // Keep this empty if no port is used
-        pathname: "/*", // Match the correct path for the images 
+        hostname: "encrypted-tbn0.gstatic.com", 
+        port: "", 
+        pathname: "/*", 
       }
-    ]
-  }
+    ],
+  },
+  assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH || "", // Ensure static assets load correctly
 };
 
 export default nextConfig;
