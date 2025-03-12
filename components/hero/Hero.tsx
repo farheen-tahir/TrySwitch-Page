@@ -150,6 +150,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 import GButton from "../global/GButton";
 import gsap from "gsap";
+import Image from "next/image";
 
 const totalFrames = 150; // Frames from 0000.png to 0150.png
 const frameRate = 24; // Frames per second
@@ -283,7 +284,7 @@ const Hero = () => {
         ref={heroAnim}
       >
         {images.length > 0 && (
-          <img
+          <Image
             src={images[frame]}
             alt="Hero Animation"
             className="hero-image w-[80%] sm:w-[70%] md:w-auto max-w-[500px]"
