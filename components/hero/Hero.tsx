@@ -169,10 +169,9 @@ const Hero = () => {
   const bg = useRef(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [images, setImages] = useState<HTMLImageElement[]>([]);
-  const [animationStarted, setAnimationStarted] = useState(false);
-  const [imagesLoaded, setImagesLoaded] = useState(false); // Track when images are fully loaded
+  const [isReady, setIsReady] = useState(false);
 
-  // Preload Images with Proper Loading Handling
+  // **Preload Images Before Animation Starts**
   useEffect(() => {
     const preloadImages = async () => {
       const loadedImages: HTMLImageElement[] = [];
@@ -181,61 +180,59 @@ const Hero = () => {
         const img = new Image();
         img.src = `/assets/images/${String(i).padStart(4, "0")}.png`;
 
-        // Ensure each image is fully loaded before proceeding
         await new Promise((resolve) => {
           img.onload = resolve;
-          img.onerror = resolve; // Handle errors
+          img.onerror = resolve; // Prevent blocking if an image fails
         });
 
         loadedImages.push(img);
       }
 
       setImages(loadedImages);
-      setImagesLoaded(true); // Mark images as fully loaded
+      setIsReady(true); // Now we can start animations
       console.log("✅ All images preloaded!");
     };
 
     preloadImages();
   }, []);
 
-  // GSAP Animation
+  // **Start GSAP Animation Only When Images Are Ready**
   useEffect(() => {
+    if (!isReady) return;
+
     const tl = gsap.timeline();
-    tl.from(boxRef.current, { x: -200, opacity: 0, duration: 0.7, delay: 1.5 })
+    tl.from(boxRef.current, { x: -200, opacity: 0, duration: 0.7 })
       .from([btn1Ref.current, btn2Ref.current], { opacity: 0, duration: 0.4 })
-      .from(
-        heroAnim.current,
-        {
-          opacity: 0,
-          duration: 0.5,
-          onStart: () => {
-            setAnimationStarted(true);
-          },
-        },
-        "-=0.3"
-      );
-  }, []);
+      .from(heroAnim.current, { opacity: 0, duration: 0.5 });
 
-  // Smooth Frame Animation on Canvas (Only Start After Images Are Loaded)
-  useEffect(() => {
-    if (!animationStarted || !imagesLoaded) return;
+    startCanvasAnimation(); // Trigger image animation **at the same time**
+  }, [isReady]);
 
+  // **Smooth Image Frame Animation on Canvas**
+  const startCanvasAnimation = () => {
+    if (!isReady) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
     let currentFrame = 0;
+
+    // **Render the first frame immediately to avoid skipping**
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(images[0], 0, 0, canvas.width, canvas.height);
+
     const playAnimation = () => {
       if (currentFrame > totalFrames) return; // Stop after last frame
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.drawImage(images[currentFrame], 0, 0, canvas.width, canvas.height);
       currentFrame++;
-      setTimeout(playAnimation, frameInterval);
+      setTimeout(playAnimation, frameInterval); // Controlled FPS
     };
 
-    playAnimation();
-  }, [animationStarted, imagesLoaded]);
+    // Start after a small delay to sync with GSAP
+    setTimeout(playAnimation, 100);
+  };
 
   return (
     <div
@@ -272,13 +269,8 @@ const Hero = () => {
         ref={heroAnim}
       >
         {/* Show canvas only when images are fully loaded */}
-        {imagesLoaded && (
-          <canvas
-            ref={canvasRef}
-            width={500}
-            height={500}
-            className="w-full max-w-[500px]"
-          />
+        {isReady && (
+          <canvas ref={canvasRef} width={500} height={500} className="w-full max-w-[500px]" />
         )}
       </div>
     </div>
