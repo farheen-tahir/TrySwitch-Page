@@ -1,4 +1,3 @@
-
 // "use client";
 // import React, { useEffect, useRef, useState } from "react";
 
@@ -171,19 +170,31 @@ const Hero = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [images, setImages] = useState<HTMLImageElement[]>([]);
   const [animationStarted, setAnimationStarted] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false); // Track when images are fully loaded
 
-  // Preload Images
+  // Preload Images with Proper Loading Handling
   useEffect(() => {
     const preloadImages = async () => {
       const loadedImages: HTMLImageElement[] = [];
+
       for (let i = 0; i <= totalFrames; i++) {
         const img = new Image();
         img.src = `/assets/images/${String(i).padStart(4, "0")}.png`;
+
+        // Ensure each image is fully loaded before proceeding
+        await new Promise((resolve) => {
+          img.onload = resolve;
+          img.onerror = resolve; // Handle errors
+        });
+
         loadedImages.push(img);
       }
+
       setImages(loadedImages);
+      setImagesLoaded(true); // Mark images as fully loaded
       console.log("✅ All images preloaded!");
     };
+
     preloadImages();
   }, []);
 
@@ -205,9 +216,9 @@ const Hero = () => {
       );
   }, []);
 
-  // Smooth Frame Animation on Canvas
+  // Smooth Frame Animation on Canvas (Only Start After Images Are Loaded)
   useEffect(() => {
-    if (!animationStarted || images.length === 0) return;
+    if (!animationStarted || !imagesLoaded) return;
 
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -224,7 +235,7 @@ const Hero = () => {
     };
 
     playAnimation();
-  }, [animationStarted, images]);
+  }, [animationStarted, imagesLoaded]);
 
   return (
     <div
@@ -260,11 +271,18 @@ const Hero = () => {
         className="w-full h-auto flex items-center justify-center md:justify-end hero-right-container md:w-[40%] mt-10 md:mt-0"
         ref={heroAnim}
       >
-        <canvas ref={canvasRef} width={500} height={500} className="w-full max-w-[500px]" />
+        {/* Show canvas only when images are fully loaded */}
+        {imagesLoaded && (
+          <canvas
+            ref={canvasRef}
+            width={500}
+            height={500}
+            className="w-full max-w-[500px]"
+          />
+        )}
       </div>
     </div>
   );
 };
 
 export default Hero;
-
