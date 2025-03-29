@@ -240,10 +240,10 @@ const Hero = () => {
       className="hero-section flex flex-col md:flex-row h-auto md:h-[28rem] bg-gradient-to-r from-orange-200 to-purple-300 py-6 px-4 md:px-6 my-0 rounded-xl w-full"
     >
       {/* Left Section */}
-      <div className="w-full md:w-[60%] px-4 md:px-0 lg:px-16 xl:px-20 flex flex-col h-full hero-left-container text-center md:text-left">
+      <div className="w-full md:w-[60%] px-4 md:px-0  lg:pl-16 xl:pl-20 flex flex-col h-full hero-left-container text-center md:text-left justify-center align-center">
         <h1
           ref={boxRef}
-          className="text-4xl sm:text-5xl md:text-6xl w-full font-bold mt-2 sm:mt-5 leading-[3rem] sm:leading-[4rem] md:leading-[4rem] text-[#292929] font-sans"
+          className="text-4xl sm:text-5xl md:text-[72px] w-full font-bold mt-2 sm:mt-5 leading-[3rem] sm:leading-[4rem] md:leading-[4rem] text-[#292929] font-sans"
         >
           The all-in-one app for off-market deals
         </h1>
@@ -270,7 +270,12 @@ const Hero = () => {
       >
         {/* Show canvas only when images are fully loaded */}
         {isReady && (
-          <canvas ref={canvasRef} width={500} height={500} className="w-full max-w-[500px]" />
+          <canvas
+            ref={canvasRef}
+            width={500}
+            height={500}
+            className="w-full max-w-[500px]"
+          />
         )}
       </div>
     </div>

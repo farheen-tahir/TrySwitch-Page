@@ -10,7 +10,7 @@ const Form = () => {
   // const [value, setValue] = useState()
   return (
     <form action="" className="mt-4">
-      <div className="flex gap-5 mb-5">
+      <div className="flex gap-5 mb-5 xl:gap-[5.25rem]">
         {/* <div className="grid w-full max-w-sm items-center gap-1.5">
           <Label htmlFor="firstName" className="font-semibold ">
             First Name

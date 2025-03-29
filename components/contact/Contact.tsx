@@ -20,6 +20,7 @@ const Contact = () => {
       scrollTrigger: contactImgRef.current,
     });
   });
+
   // useEffect(() => {
   //   gsap.from(contactImgRef.current, {
   //     x: -200,

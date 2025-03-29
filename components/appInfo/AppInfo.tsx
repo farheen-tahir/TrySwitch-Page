@@ -46,7 +46,7 @@ const AppInfo = ({
           <h1 className="text-4xl font-black  text-primary py-2 md:text-start text-center">
             For Seller
           </h1>
-          <p className="text-lg max-sm:text-sm max-sm:pr-0  text-[#555555] pt-[1rem] pr-7  md:text-start text-center">
+          <p className="text-lg max-sm:text-sm max-sm:pr-0  text-[#555555] pt-[1rem] pr-7  md:text-justify text-center">
             In a market increasingly dominated by MLS software, off-market
             sellers aiming to expand their reach can’t afford to fall behind.
             Instead of competing against this trend, join it with TrySwitch. Our
@@ -110,7 +110,7 @@ const AppInfo = ({
           <h1 className="text-4xl font-black text-primary py-2 md:text-start text-center">
             For Investor
           </h1>
-          <p className="text-lg max-sm:pr-0 max-sm:text-sm  text-[#555555] pt-[1rem] pr-7  md:text-start text-center">
+          <p className="text-lg max-sm:pr-0 max-sm:text-sm  text-[#555555] pt-[1rem] pr-7  md:text-justify text-center">
             Whether you’re a residential investor, real estate flipper,
             buy-and-hold investor, wholesaler, or land developer, TrySwitch
             simplifies your search for discounted investment opportunities. Our

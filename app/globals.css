@@ -403,7 +403,7 @@
 @media (min-width: 375px) and (max-width: 424px) {
   .hero-section {
     height: 40rem;
-    margin-bottom: 8rem !important;
+    margin-bottom: 12rem !important;
   }
   .hero-left-container h1 {
     font-size: 52px;
@@ -555,7 +555,7 @@
   }
 
   .solution-right-container {
-    left: 65% !important;
+    left: 62% !important;
     max-width: 15rem !important;
 
   }
@@ -564,11 +564,35 @@
     width: 15rem;
     height: 15rem;
   }
+  .solution-left-container {
+    width: 60% !important;
+    padding-left: 0 !important;
+  }
+  .solution-left-container h1 {
+    font-size: 2.25rem;
+  }
+  .solution-left-container p {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    margin-bottom: 1rem;
+  }
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
   .solution-right-container {
-    left: 65% !important;
+    left: 62% !important;
+  }
+  .solution-left-container {
+    width: 60% !important;
+    padding-left: 0 !important;
+  }
+  .solution-left-container h1 {
+    font-size: 2.25rem;
+  }
+  .solution-left-container p {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    margin-bottom: 1rem;
   }
 }
 
@@ -666,6 +690,35 @@
 
 @media (min-width: 1367px) {
   .footer {
-    max-width: 80rem !important;
+    max-width: 90rem !important;
   }
 }
+
+@media (min-width: 1367px) {
+  .solution-section {
+    max-width: 80rem !important;
+  }
+  .solution-left-container {
+    width: 85% !important;
+
+  }
+  .solution-left-container h1 {
+    font-size: 4rem !important;
+  }
+  .solution-right-container {
+    left: 67% !important;
+  }
+}
+/* @keyframes slide {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+  
+
+}
+#contact {
+  animation: slide 0.5s ease-in-out;
+} */

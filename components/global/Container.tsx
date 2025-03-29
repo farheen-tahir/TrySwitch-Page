@@ -14,7 +14,7 @@ const Container = ({
     <div
       ref={ref}
       className={cn(
-        "mx-auto  max-w-6xl lg:max-w-7xl xl:w-full  px-8 ",
+        "mx-auto  max-w-6xl lg:max-w-screen-2xl xl:w-full  px-8 ",
         className
       )}
     >

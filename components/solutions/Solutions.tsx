@@ -8,13 +8,13 @@ const Solutions = () => {
   return (
     <div
       id="solutions"
-      className="bg-gradient-to-r flex flex-col md:flex-row h-auto md:h-[25rem] from-[#270AAD] to-[#D9D2FC] py-6 px-4 md:px-6 mt-20 rounded-xl max-w-[65rem] mx-0 "
+      className="solution-section bg-gradient-to-r flex flex-col md:flex-row h-auto md:h-[25rem] from-[#270AAD] to-[#D9D2FC] py-6 px-4 md:px-6 mt-20 rounded-xl max-w-[72rem] lg:max-w-[70rem] xl:max-w-[70rem] mx-0 "
     >
-      <div className="w-full md:w-[65%] pl-[2rem] ">
+      <div className="w-full md:w-[72%] sm:pl-[2rem] solution-left-container">
         <h1 className="solution-title text-[3rem] font-black text-white py-2 md:text-start text-center">
           Solutions
         </h1>
-        <p className="solution-description text-lg max-sm:text-sm  text-white pt-[1rem] pr-7  md:text-start text-center">
+        <p className="solution-description text-2xl max-sm:text-sm  text-white sm:pr-7  md:text-justify text-center">
           TrySwitch simplifies real estate investing by connecting you with
           verified sellers and tools to manage listings, build networks, and
           communicate efficiently. For off-market sellers, it’s easy to list
@@ -40,7 +40,7 @@ const Solutions = () => {
         <div className="tilted-box max-md:hidden w-[20rem] h-[20rem] bg-gradient-to-r from-[#270AAD] to-[#D9D2FC] z-10 absolute left-0 top-0 rounded-xl custom-transform"></div>
         <div className="tilted-box max-md:hidden w-[20rem] h-[20rem] bg-gradient-to-r from-[#270AAD] to-[#D9D2FC] z-0 absolute left-0 top-0 rounded-xl custom-transform2"></div>
       </div> */}
-      <div className="solution-right-container max-w-[90%] md:max-w-[20rem] relative md:absolute md:left-[50rem] self-center max-md:mt-5 lg:left-[55rem] xl:left-[63%]">
+      <div className="solution-right-container max-w-[90%] md:max-w-[20rem] relative md:absolute md:left-[50rem] self-center max-md:mt-5 lg:left-[55rem] xl:left-[72%]">
         {/* Main Image - Triggers Hover Animation */}
         <div
           onMouseEnter={() => setHovered(true)}
