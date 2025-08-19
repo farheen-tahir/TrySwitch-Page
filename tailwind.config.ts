@@ -62,7 +62,7 @@ export default {
       },
       screens: {
       'xxs': '320px',
-      'xs':'414px',
+      'xs':'430px',
       'sm':'600px',
       'xl':'1920px'
       }

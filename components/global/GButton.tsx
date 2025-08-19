@@ -23,7 +23,7 @@ const GButton = ({
         className
       )}
     >
-      <Link href="#" className="flex gap-4 items-center">
+      <Link href="#" className="flex gap-4 items-center max-sm:justify-center">
         <Image
           src={img || ""}
           alt="download app icons"

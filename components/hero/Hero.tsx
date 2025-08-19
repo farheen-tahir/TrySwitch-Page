@@ -247,7 +247,7 @@ const Hero = () => {
         >
           The all-in-one app for off-market deals
         </h1>
-        <div className="flex flex-col sm:flex-row gap-7 sm:gap-8 w-full mt-6 sm:mt-12 justify-center md:justify-start">
+        <div className="flex flex-row max-sm:!flex-col max-sm:max-w-[95%]  max-sm:self-center gap-7 sm:gap-8 w-full mt-6 sm:mt-12 justify-center md:justify-start">
           <GButton
             ref={btn1Ref}
             className="w-full sm:w-[26%] bg-black hover:bg-black shadow-lg transition-shadow duration-300 "
