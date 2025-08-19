@@ -64,6 +64,7 @@ export default {
       'xxs': '320px',
       'xs':'414px',
       'sm':'600px',
+      'xl':'1920px'
       }
     },
   },

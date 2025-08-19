@@ -1,16 +1,22 @@
 "use client";
-import React, { useState } from "react";
-import Image from "next/image";
-import { motion } from "framer-motion";
+import React from "react";
+// import Image from "next/image";
+// import { motion } from "framer-motion";
 
 const Solutions = () => {
-  const [hovered, setHovered] = useState(false);
+  // const [hovered, setHovered] = useState(false);
   return (
     <div
       id="solutions"
-      className="solution-section bg-gradient-to-r flex flex-col md:flex-row h-auto md:h-[25rem] from-[#270AAD] to-[#D9D2FC] py-6 px-4 md:px-6 mt-20 rounded-xl max-w-[72rem] lg:max-w-[70rem] xl:max-w-[70rem] mx-0 "
+      style={{
+        backgroundImage: "url('/assets/images/bg-solution.png')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+      className="bg-gradient-to-r flex flex-col md:flex-row h-auto md:h-[35rem] from-[#270AAD] to-[#D9D2FC] py-6 px-4 md:px-6 mt-20 rounded-xl  mx-0  "
+      // max-w-[72rem] lg:max-w-[70rem] xl:max-w-[70rem] solution-section
     >
-      <div className="w-full md:w-[72%] sm:pl-[2rem] solution-left-container">
+      <div className="w-full md:w-[72%] sm:pl-[2rem] solution-left-container flex flex-col justify-center">
         <h1 className="solution-title text-[3rem] font-black text-white py-2 md:text-start text-center">
           Solutions
         </h1>
@@ -40,8 +46,8 @@ const Solutions = () => {
         <div className="tilted-box max-md:hidden w-[20rem] h-[20rem] bg-gradient-to-r from-[#270AAD] to-[#D9D2FC] z-10 absolute left-0 top-0 rounded-xl custom-transform"></div>
         <div className="tilted-box max-md:hidden w-[20rem] h-[20rem] bg-gradient-to-r from-[#270AAD] to-[#D9D2FC] z-0 absolute left-0 top-0 rounded-xl custom-transform2"></div>
       </div> */}
-      <div className="solution-right-container max-w-[90%] md:max-w-[20rem] relative md:absolute md:left-[50rem] self-center max-md:mt-5 lg:left-[55rem] xl:left-[72%]">
-        {/* Main Image - Triggers Hover Animation */}
+      {/* <div className="solution-right-container max-w-[90%] md:max-w-[20rem] relative md:absolute md:left-[50rem] self-center max-md:mt-5 lg:left-[55rem] xl:left-[72%]">
+       
         <div
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
@@ -57,7 +63,6 @@ const Solutions = () => {
           />
         </div>
 
-        {/* Tilted Box 1 - Rotate 5 degrees (Smooth) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9, rotate: 0 }}
           animate={
@@ -74,8 +79,6 @@ const Solutions = () => {
           }}
           className="tilted-box max-md:hidden w-[20rem] h-[20rem] bg-gradient-to-r from-[#270AAD] to-[#D9D2FC] z-10 absolute left-0 top-0 rounded-xl"
         />
-
-        {/* Tilted Box 2 - Rotate 10 degrees (Smoother Delay) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9, rotate: 0 }}
           animate={
@@ -93,7 +96,7 @@ const Solutions = () => {
           }}
           className="tilted-box max-md:hidden w-[20rem] h-[20rem] bg-gradient-to-r from-[#270AAD] to-[#D9D2FC] z-0 absolute left-0 top-0 rounded-xl"
         />
-      </div>
+      </div> */}
     </div>
   );
 };

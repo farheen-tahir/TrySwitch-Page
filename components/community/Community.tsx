@@ -281,7 +281,7 @@ const Community = () => {
 
   return (
     <Container
-      className="mb-20 flex    justify-center items-start overflow-hidden box-1 md:flex-row flex-col"
+      className="mb-20 flex    justify-center items-start overflow-hidden box-1 md:flex-row flex-col mt-20"
       ref={communityBoxRef}
     >
       <div className="w-full md:w-1/2 ">
@@ -302,7 +302,7 @@ const Community = () => {
         </p>
         <Button
           ref={communityBtnRef}
-          className="bg-secondary w-full md:w-2/4 my-3 py-6 mx-auto md:mx-0 flex"
+         className="w-full md:w-2/4 my-3 py-6 mx-auto md:mx-0 flex text-white bg-[linear-gradient(to_bottom,_#FFC2AE,_#F54208)]"
         >
           <p className="text-xl font-semibold my-4">Subscribe</p>
         </Button>

@@ -243,20 +243,20 @@ const Hero = () => {
       <div className="w-full md:w-[60%] px-4 md:px-0  lg:pl-16 xl:pl-20 flex flex-col h-full hero-left-container text-center md:text-left justify-center align-center">
         <h1
           ref={boxRef}
-          className="text-4xl sm:text-5xl md:text-[72px] w-full font-bold mt-2 sm:mt-5 leading-[3rem] sm:leading-[4rem] md:leading-[4rem] text-[#292929] font-sans"
+          className="text-4xl sm:text-5xl md:text-[72px] w-full font-bold mt-2 sm:mt-5 leading-[3rem] sm:leading-[4rem] md:leading-[5rem] text-[#292929] font-sans"
         >
           The all-in-one app for off-market deals
         </h1>
         <div className="flex flex-col sm:flex-row gap-7 sm:gap-8 w-full mt-6 sm:mt-12 justify-center md:justify-start">
           <GButton
             ref={btn1Ref}
-            className="w-full sm:w-2/5 bg-primary hover:bg-secondary"
+            className="w-full sm:w-[26%] bg-black hover:bg-black shadow-lg transition-shadow duration-300 "
             img="/assets/images/PlaystoreIcon.svg"
             text="Google Play"
           />
           <GButton
             ref={btn2Ref}
-            className="w-full sm:w-2/5 bg-secondary hover:bg-primary"
+            className="w-full sm:w-[26%] bg-black  hover:bg-black shadow-lg transition-shadow duration-300 "
             img="/assets/images/AppleIcon.svg"
             text="App Store"
           />

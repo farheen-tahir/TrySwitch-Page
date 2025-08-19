@@ -24,8 +24,10 @@ const Navbar = () => {
   }, []); // No need to include `tl` here, as it is now defined within the effect.
 
   return (
-    <nav>
-      <Container className="flex flex-row justify-between sm:items-center py-6 flex-wrap">
+    <nav 
+    // className="sticky top-0 z-50  bg-white"
+    >
+      <Container className="flex flex-row justify-between sm:items-center py-6 flex-wrap ">
         <Logo ref={logo} />
         <div className="flex items-center">
           <div className="hidden [@media(min-width:856px)]:flex gap-4">

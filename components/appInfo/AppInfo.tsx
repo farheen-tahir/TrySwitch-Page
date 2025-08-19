@@ -39,7 +39,7 @@ const AppInfo = ({
     <Container
       className={`h-full justify-between flex ${
         userType === 1 ? "flex-col-reverse" : "flex-col"
-      } lg:flex-row py-6 px-4 md:px-6  rounded-xl max-w-[65rem] my-12 mx-0`}
+      } lg:flex-row py-6 px-4 md:px-6  rounded-xl max-w-[65rem] my-12 mx-0 mt-20`}
     >
       {userType === 2 && (
         <div className="w-full lg:w-1/2  ">
@@ -59,12 +59,12 @@ const AppInfo = ({
           </p>
           <div className="justify-center flex flex-col sm:flex-row gap-7 sm:gap-8 w-full mt-8 sm:mt-16">
             <GButton
-              className="w-full sm:w-[47%] bg-primary hover:bg-secondary"
+              className="w-full sm:w-[40%] bg-black  hover:bg-black "
               img="/assets/images/PlaystoreIcon.svg"
               text="Google Play"
             />
             <GButton
-              className="w-full sm:w-[47%] bg-secondary hover:bg-primary"
+              className="w-full sm:w-[40%] bg-black  hover:bg-black "
               img="/assets/images/AppleIcon.svg"
               text="App Store"
             />
@@ -123,12 +123,12 @@ const AppInfo = ({
           </p>
           <div className="justify-center flex flex-col sm:flex-row gap-7 sm:gap-8 w-full mt-8 sm:mt-16">
             <GButton
-              className="w-full sm:w-[47%] bg-primary hover:bg-secondary"
+              className="w-full sm:w-[40%] bg-black  hover:bg-black "
               img="/assets/images/PlaystoreIcon.svg"
               text="Google Play"
             />
             <GButton
-              className="w-full sm:w-[47%] bg-secondary hover:bg-primary"
+              className="w-full sm:w-[40%] bg-black hover:bg-black "
               img="/assets/images/AppleIcon.svg"
               text="App Store"
             />

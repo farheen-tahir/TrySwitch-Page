@@ -709,6 +709,12 @@
     left: 67% !important;
   }
 }
+/* contact form  */
+@media (min-width: 1280px) {
+  #custom-phone-input {
+    height: 4rem !important;
+  }
+}
 /* @keyframes slide {
   from {
     transform: translateX(-100%);

@@ -380,7 +380,7 @@ const Features = () => {
     <div
       id="features"
       ref={containerRef}
-      className="w-full my-5 feature-section overflow-hidden feature-section"
+      className="w-full my-5 feature-section overflow-hidden feature-section mt-20"
     >
       <h2 className="text-center text-secondary text-[2.5rem] font-[700]">
         Features

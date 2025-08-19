@@ -34,7 +34,10 @@ const Form = () => {
           />
         </div> */}
         <div className="grid w-full max-w-sm items-center gap-1.5">
-          <Label htmlFor="firstName" className="font-semibold">
+          <Label
+            htmlFor="firstName"
+            className="font-semibold lg:text-[16px] xl:text-[20px] xl:mb-2"
+          >
             First Name
           </Label>
           <div className="relative">
@@ -42,7 +45,7 @@ const Form = () => {
               type="text"
               id="firstName"
               placeholder="First Name"
-              className="h-12 pl-10 w-full"
+              className="h-12 lg:h-11 xl:h-14 pl-10 w-full"
             />
             <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
               <svg
@@ -64,7 +67,10 @@ const Form = () => {
           </div>
         </div>
         <div className="grid w-full max-w-sm items-center gap-1.5">
-          <Label htmlFor="firstName" className="font-semibold">
+          <Label
+            htmlFor="firstName"
+            className="font-semibold lg:text-[16px] xl:text-[20px] xl:mb-2"
+          >
             Last Name
           </Label>
           <div className="relative">
@@ -72,7 +78,7 @@ const Form = () => {
               type="text"
               id="firstName"
               placeholder="Last Name"
-              className="h-12 pl-10 w-full"
+              className="h-12 lg:h-11 xl:h-14 pl-10 w-full"
             />
             <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
               <svg
@@ -96,7 +102,10 @@ const Form = () => {
       </div>
 
       <div className="relative grid w-full items-center gap-1.5 mb-5">
-        <Label htmlFor="subject" className="font-semibold">
+        <Label
+          htmlFor="subject"
+          className="font-semibold lg:text-[16px] xl:text-[20px] xl:mb-2"
+        >
           Subject
         </Label>
         <div className="relative">
@@ -104,7 +113,7 @@ const Form = () => {
             type="text"
             id="subject"
             placeholder="Enter subject of your message"
-            className="h-12 pl-10 w-full"
+            className="h-12 lg:h-11 xl:h-14 pl-10 w-full"
           />
           <svg
             className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500"
@@ -161,12 +170,15 @@ const Form = () => {
         />
       </div> */}
       <div className="relative w-full mb-5">
-        <Label htmlFor="message" className="font-semibold ">
+        <Label
+          htmlFor="message"
+          className="font-semibold lg:text-[16px] xl:text-[20px]  xl:mb-3"
+        >
           Message
         </Label>
         <Textarea
-          className="w-full p-3 pl-10 resize-none"
-          rows={4}
+          className=" w-full p-3 pl-10 resize-none xl:mt-2"
+          rows={4.5}
           placeholder="Enter Your Message"
           // value={text}
           // onChange={(e) => setText(e.target.value)}
@@ -174,7 +186,7 @@ const Form = () => {
         <span className="absolute bottom-2 right-3 text-gray-500 text-sm">
           {0}/150
         </span>
-        <div className="absolute left-3 top-[2.25rem]">
+        <div className="absolute left-3 top-[2.25rem] xl:top-[2.75rem]">
           <svg
             width="22"
             height="22"
@@ -198,7 +210,10 @@ const Form = () => {
       </div>
 
       <div className="grid w-full  items-center gap-1.5 mb-5">
-        <Label htmlFor="subject" className="font-semibold ">
+        <Label
+          htmlFor="subject"
+          className="font-semibold lg:text-[16px] xl:text-[20px] xl:mb-2"
+        >
           Phone Number
         </Label>
         {/* <Input
@@ -219,13 +234,18 @@ const Form = () => {
             height: "3rem",
             width: "100%",
           }}
+          inputProps={{
+            id: "custom-phone-input",
+          }}
           country={"us"}
           // value={this.state.phone}
           // onChange={phone => this.setState({ phone })}
         />
       </div>
 
-      <Button className="w-full h-12">Submit</Button>
+      <Button className="w-full h-12 xl:h-[65px] xl:text-[22px] rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 bg-[linear-gradient(to_bottom,_#270AAD,_#583FCB)]">
+        SUBMIT
+      </Button>
     </form>
   );
 };

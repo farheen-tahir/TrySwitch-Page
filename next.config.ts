@@ -19,6 +19,7 @@ const nextConfig: NextConfig = {
     ],
   },
   assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH || "", // Ensure static assets load correctly
+  output: 'export',
 };
 
 export default nextConfig;

@@ -890,7 +890,7 @@ const About: React.FC = () => {
 
   return (
     <div
-      className="about-container w-full my-5 h-auto mb-[16rem] p-0 "
+      className="about-container w-full my-5 h-auto mb-[16rem] p-0 mt-20 "
       id="why-tryswitch"
     >
       <h2 className="mx-auto text-center text-3xl font-black py-5">

@@ -40,10 +40,10 @@ const Contact = () => {
   //   });
   // }, []);
   return (
-    <Container className=" flex mb-20 flex-col lg:flex-row max-sm:p-0 justify-between max-lg:gap-[3rem] ">
+    <Container className=" flex mb-20 flex-col lg:flex-row max-sm:p-0 justify-between max-lg:gap-[3rem]  mt-20">
       <div
         id="contact"
-        className="w-full xl:w-[35%] lg:w-[37%] lg:max-w-[1200px]:w-[37%] lg:block hidden "
+        className="w-full xl:w-[38%] lg:w-[34%] lg:max-w-[1200px]:w-[37%] lg:block hidden "
         ref={contactImgRef} // h-[10%]
       >
         <Image
@@ -56,10 +56,10 @@ const Contact = () => {
         />
       </div>
       <div className="w-full lg:w-[55%] xl:w-3/5  max-sm:p-0 ">
-        <h2 className="text-5xl font-bold pb-3 text-gray-700">
+        <h2 className="text-5xl lg:text-[3.5rem] font-bold pb-3 text-gray-700 xl:text-6xl">
           Let’s Get in Touch
         </h2>
-        <p className="text-lg">
+        <p className="text-lg lg:text-xl xl:text-2xl xl:mb-8">
           Get in touch with us at{" "}
           <span className="text-secondary font-bold">Team@tryswitch.io</span>
         </p>
