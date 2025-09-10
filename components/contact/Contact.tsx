@@ -60,8 +60,8 @@ const Contact = () => {
           Let’s Get in Touch
         </h2>
         <p className="text-lg lg:text-xl xl:text-2xl xl:mb-8">
-          Get in touch with us at{" "}
-          <span className="text-secondary font-bold">Team@tryswitch.io</span>
+          {/* Get in touch with us at{" "} */}
+          {/* <span className="text-secondary font-bold">Team@tryswitch.io</span> */}
         </p>
         <Form />
       </div>

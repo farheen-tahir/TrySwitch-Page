@@ -1,15 +1,103 @@
-import React from "react";
+import React, { useState } from "react";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import PhoneInput from "react-phone-input-2";
 import "react-phone-input-2/lib/style.css";
+import { useToast } from "@/hooks/use-toast";
+import { contactCode3Scribe } from "@/lib/API/contact";
 const Form = () => {
-  // const [message, setMessage] = useState("");
-  // const [value, setValue] = useState()
+  const { toast } = useToast();
+  // ✅ Form state
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    subject: "",
+    message: "",
+    phoneNumber: "",
+  });
+
+  // ✅ Handle input changes
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+  };
+
+  // ✅ Handle phone change separately
+  const handlePhoneChange = (value: string) => {
+    setFormData((prev) => ({
+      ...prev,
+      phoneNumber: value,
+    }));
+  };
+
+  // ✅ Validation logic
+  const validateForm = () => {
+    const { firstName, lastName, subject, message, phoneNumber } = formData;
+
+    if (!firstName.trim() || !lastName.trim()) {
+      toast({
+        variant: "destructive",
+        title: "First & Last Name is required!",
+      });
+      return false;
+    }
+
+    if (!subject.trim()) {
+      toast({ variant: "destructive", title: "Subject is required!" });
+
+      return false;
+    }
+
+    if (!message.trim()) {
+      toast({ variant: "destructive", title: "Message is required!" });
+
+      return false;
+    }
+    if (message.length > 150) {
+      toast({
+        variant: "destructive",
+        title: "Message cannot exceed 150 characters",
+      });
+
+      return false;
+    }
+
+    if (!phoneNumber || phoneNumber.length < 7) {
+      toast({ variant: "destructive", title: "Enter valid Phone-Number" });
+      return false;
+    }
+
+    return true;
+  };
+
+  // ✅ Handle form submission
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    try {
+      e.preventDefault();
+      if (!validateForm()) return;
+      const contactResponse = await contactCode3Scribe(formData);
+      console.log(contactResponse);
+    } catch (error) { 
+      console.log(error);
+    } finally {
+      setFormData({
+        firstName: "",
+        lastName: "",
+        subject: "",
+        message: "",
+        phoneNumber: "",
+      });
+    }
+  };
   return (
-    <form action="" className="mt-4">
+    <form onSubmit={handleSubmit} className="mt-4">
       <div className="flex gap-5 mb-5 xl:gap-[5.25rem]">
         {/* <div className="grid w-full max-w-sm items-center gap-1.5">
           <Label htmlFor="firstName" className="font-semibold ">
@@ -45,6 +133,8 @@ const Form = () => {
               type="text"
               id="firstName"
               placeholder="First Name"
+              onChange={handleChange}
+              value={formData.firstName}
               className="h-12 lg:h-11 xl:h-14 pl-10 w-full"
             />
             <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
@@ -76,8 +166,10 @@ const Form = () => {
           <div className="relative">
             <Input
               type="text"
-              id="firstName"
+              id="lastName"
               placeholder="Last Name"
+              onChange={handleChange}
+              value={formData?.lastName}
               className="h-12 lg:h-11 xl:h-14 pl-10 w-full"
             />
             <span className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
@@ -112,6 +204,8 @@ const Form = () => {
           <Input
             type="text"
             id="subject"
+            onChange={handleChange}
+            value={formData?.subject}
             placeholder="Enter subject of your message"
             className="h-12 lg:h-11 xl:h-14 pl-10 w-full"
           />
@@ -180,8 +274,9 @@ const Form = () => {
           className=" w-full p-3 pl-10 resize-none xl:mt-2"
           rows={4.5}
           placeholder="Enter Your Message"
-          // value={text}
-          // onChange={(e) => setText(e.target.value)}
+          id="message"
+          value={formData.message}
+          onChange={handleChange}
         />
         <span className="absolute bottom-2 right-3 text-gray-500 text-sm">
           {0}/150
@@ -238,8 +333,8 @@ const Form = () => {
             id: "custom-phone-input",
           }}
           country={"us"}
-          // value={this.state.phone}
-          // onChange={phone => this.setState({ phone })}
+          value={formData?.phoneNumber}
+          onChange={handlePhoneChange}
         />
       </div>
 

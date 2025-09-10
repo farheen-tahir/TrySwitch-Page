@@ -6,20 +6,20 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "gratisography.com", 
-        port: "", 
-        pathname: "/wp-content/uploads/**", 
+        hostname: "gratisography.com",
+        port: "",
+        pathname: "/wp-content/uploads/**",
       },
       {
         protocol: "https",
-        hostname: "encrypted-tbn0.gstatic.com", 
-        port: "", 
-        pathname: "/*", 
-      }
+        hostname: "encrypted-tbn0.gstatic.com",
+        port: "",
+        pathname: "/*",
+      },
     ],
   },
   assetPrefix: process.env.NEXT_PUBLIC_BASE_PATH || "", // Ensure static assets load correctly
-  output: 'export',
+  output: "export",
 };
 
 export default nextConfig;

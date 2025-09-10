@@ -1,5 +1,6 @@
+"use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 import { Input } from "../ui/input";
 import { Checkbox } from "../ui/checkbox";
 import { IoIosArrowForward } from "react-icons/io";
@@ -9,7 +10,10 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import GradientIcon from "./GradientIcon";
 import Container from "../global/Container";
+import Modal, { ModalType } from "../modal";
 const Footer = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [type, setType] = useState<ModalType>("privacy");
   return (
     <Container className="footer lg:mx-auto px-0  lg:max-w-full  xl:max-w-[85rem]">
       <footer className="shadow-2xl">
@@ -23,9 +27,23 @@ const Footer = () => {
               priority
             />
             <div className="pt-5 mx-auto flex sm:justify-start max-sm:justify-evenly gap-10 text-gray-800 font-bold max-sm:text-[0.875rem]">
-              <p>Learn</p>
-              <p>Privacy Policy</p>
-              <p>Terms of Use</p>
+              {/* <p>Learn</p> */}
+              <button
+                onClick={() => {
+                  setType("privacy");
+                  setModalOpen(true);
+                }}
+              >
+                Privacy Policy
+              </button>
+              <button
+                onClick={() => {
+                  setType("terms");
+                  setModalOpen(true);
+                }}
+              >
+                Terms of Use
+              </button>
             </div>
             <div className="flex space-x-4 pt-5 max-sm:justify-evenly">
               <GradientIcon Icon={FaFacebook} className="h-9 w-9" />
@@ -66,7 +84,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex w-full mx-auto gap-3 justify-center items-center text-sm py-3 text-slate-700 flex-wrap ">
+        {/* <div className="flex w-full mx-auto gap-3 justify-center items-center text-sm py-3 text-slate-700 flex-wrap ">
           <p>Disclaimer</p>
           <p className="text-lg text-slate-700 writing-mode-vertical-rl">|</p>
           <p>Warranties</p>
@@ -74,7 +92,7 @@ const Footer = () => {
           <p>Guaranties</p>
           <p className="text-lg text-slate-700 writing-mode-vertical-rl">|</p>
           <p>Disclosures</p>
-        </div>
+        </div> */}
 
         <div className="w-full bg-gradient-to-t from-[#2A0EA6] to-[#F54208] py-3">
           <p className="text-center text-white">
@@ -82,6 +100,11 @@ const Footer = () => {
           </p>
         </div>
       </footer>
+      <Modal
+        isOpen={modalOpen}
+        onClose={() => setModalOpen(false)}
+        type={type}
+      />
     </Container>
   );
 };

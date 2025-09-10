@@ -6,6 +6,7 @@ import Container from "@/components/global/Container";
 import Footer from "@/components/footer/Footer";
 import Loader from "@/components/loader/Loader"; 
 import { Suspense } from "react";
+import { Toaster } from "@/components/ui/toaster";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -51,6 +52,7 @@ export default function RootLayout({
           <Container className="py-2">{children}</Container>
         </Suspense>
         <Footer />
+        <Toaster />
       </body>
     </html>
   );
