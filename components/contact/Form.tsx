@@ -14,6 +14,7 @@ const Form = () => {
     firstName: "",
     lastName: "",
     subject: "",
+    email: "",
     message: "",
     phoneNumber: "",
   });
@@ -39,7 +40,7 @@ const Form = () => {
 
   // ✅ Validation logic
   const validateForm = () => {
-    const { firstName, lastName, subject, message, phoneNumber } = formData;
+    const { firstName, lastName, subject,email, message, phoneNumber } = formData;
 
     if (!firstName.trim() || !lastName.trim()) {
       toast({
@@ -48,7 +49,13 @@ const Form = () => {
       });
       return false;
     }
-
+    if (!email.trim() ) {
+      toast({
+        variant: "destructive",
+        title: "Email is required!",
+      });
+      return false;
+    }
     if (!subject.trim()) {
       toast({ variant: "destructive", title: "Subject is required!" });
 
@@ -58,6 +65,11 @@ const Form = () => {
     if (!message.trim()) {
       toast({ variant: "destructive", title: "Message is required!" });
 
+      return false;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast({ variant: "destructive", title: "Enter a valid email address" });
       return false;
     }
     if (message.length > 150) {
@@ -79,9 +91,10 @@ const Form = () => {
 
   // ✅ Handle form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!validateForm()) return;
     try {
-      e.preventDefault();
-      if (!validateForm()) return;
+     
       const contactResponse = await contactCode3Scribe(formData);
       console.log(contactResponse);
     } catch (error) { 
@@ -91,6 +104,7 @@ const Form = () => {
         firstName: "",
         lastName: "",
         subject: "",
+        email:"",
         message: "",
         phoneNumber: "",
       });
@@ -190,6 +204,58 @@ const Form = () => {
               </svg>
             </span>
           </div>
+        </div>
+      </div>
+      <div className="relative grid w-full items-center gap-1.5 mb-5">
+        <Label
+          htmlFor="email"
+          className="font-semibold lg:text-[16px] xl:text-[20px] xl:mb-2"
+        >
+          Email
+        </Label>
+        <div className="relative">
+          <Input
+            type="text"
+            id="email"
+            onChange={handleChange}
+            value={formData?.email}
+            placeholder="Enter Email"
+            className="h-12 lg:h-11 xl:h-14 pl-10 w-full"
+          />
+           <svg
+            className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g
+              id="SVGRepo_tracerCarrier"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            ></g>
+            <g id="SVGRepo_iconCarrier">
+              {" "}
+              <rect
+                x="3"
+                y="6"
+                width="18"
+                height="12"
+                rx="2"
+                stroke="#333333"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></rect>{" "}
+              <path
+                d="M20.5737 7L12 13L3.42635 7"
+                stroke="#333333"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></path>{" "}
+            </g>
+          </svg>
         </div>
       </div>
 

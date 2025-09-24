@@ -6,6 +6,7 @@ export const contactCode3Scribe = (payload: {
   subject: string;
   message: string;
   phoneNumber: string;
+  email:string;
 }) => {
   return dataServer.post(`/Email/SendContactEmail`, payload);
 };

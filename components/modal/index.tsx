@@ -17,7 +17,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, type }) => {
 
   useEffect(() => {
     if (!isOpen) return;
-    fetch(`/assets/content/${type}.md`)
+    fetch(`/assets/content/${type}.txt`)
       .then((res) => res.text())
       .then(setMd)
       .catch((err) => console.error("Error loading markdown:", err));
